@@ -36,7 +36,7 @@ export const projects: Project[] = [
     category: "Insurance system",
     role: "End-to-end development",
     featured: true,
-    technologies: ["Laravel", "PHP", "Inertia", "React", "TypeScript", "MySQL", "Spatie Permissions"],
+    technologies: ["Laravel", "PHP", "Inertia", "React", "TypeScript", "MySQL", "Spatie Permissions", "DomPDF"],
     published: true,
   },
   {

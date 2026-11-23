@@ -6,8 +6,48 @@ Handoff file for portfolio implementation sessions. See
 
 ## Current phase and status
 
-- Phase: Prompt 4 — 2B Gamers Store case study — **complete**
-- Next prompt: **Prompt 5 — Hamaline Insurance case study**
+- Phase: Prompt 5 — Hamaline Insurance case study — **complete**
+- Next prompt: **Prompt 6 — Simplifi Networks + BLVD GUIDE**
+
+## Work completed (Prompt 5)
+
+- Read-only audit of `C:\thelab\hims-v1` (confirmed as HIMS; no .git
+  dir — Kevin's contribution still not independently verifiable).
+- `content/hamaline-insurance.ts` rewritten with verified detail:
+  - Modules verified in code: clients (individual/corporate, KRA PIN,
+    docs), underwriters, quotations (+PDF), policies (motor/medical/WIBA
+    detail tables, members, progressive form, 6-state lifecycle),
+    risk notes (medical/motor/WIBA, draft→pending→active/cancelled),
+    claims (assignment to officers), payments (finance-only, proof
+    upload), renewals (30/60/90-day reminder artisan command → SMS +
+    email), commissions, reports (6 report types, role dashboards),
+    users/RBAC UI.
+  - Modular monolith: per-module controllers/requests/services/pages;
+    RiskNoteService ~1k lines, ReportsService ~780 lines.
+  - RBAC: Fortify (2FA, email verification) + Spatie, 5 roles
+    (admin/underwriter/claims_officer/finance_officer/client), route
+    middleware + ResourceAccessService record-level scoping; audit
+    fields created_by/updated_by/approved_by/assigned_to/received_by.
+  - PDFs via DomPDF incl. 850-line motor risk-note template with
+    financial calcs (PHCF, training levy, stamp duty).
+  - Frontend: React 19 strict TS, Inertia, RHF + Zod mirroring Laravel
+    form requests, Radix + Tailwind 4.
+  - Transactions on critical service ops; 21 tests; CI PHP 8.3–8.5 +
+    Pint/ESLint/Prettier.
+- `lib/projects.ts` — Hamaline tech list: added DomPDF.
+
+## Audit notes / do-not-publish
+
+- Repo contains `.env.local` and a `bibhntxx_hims.sql` production dump —
+  neither referenced in portfolio content.
+- No live URL, deployment config, or metrics verified — none published.
+- SMS/email provider credentials live in env; CommunicationService
+  verified to exist but provider unnamed in copy ("SMS and email").
+
+## Commands run and results (Prompt 5)
+
+- `npm run lint` — clean.
+- `npm run build` — success; 14 routes prerender.
 
 ## Work completed (Prompt 4)
 
@@ -179,10 +219,11 @@ dependency, fully typed, static-export safe.
 
 ## Exact next task
 
-Run **Prompt 5**: Hamaline Insurance case study. Likely repo:
-`C:\thelab\hims-v1` (name suggests "Hamaline Insurance Management
-System") — verify before auditing. Same read-only audit approach as
-Prompt 4, then deepen `content/hamaline-insurance.ts`. Then Prompt 6
-(Simplifi + BLVD; likely repos `blvdguide` and possibly others),
-Prompt 7 (AfriQ + MwalimuPLUS — historical projects, may have no local
-repos), Prompt 8 (about/contact/SEO), Prompt 9 (QA + deploy).
+Run **Prompt 6**: Simplifi Networks + BLVD GUIDE. Candidate local repos:
+`C:\thelab\blvdguide` (BLVD GUIDE — verify) and possibly a Simplifi repo
+— check `C:\thelab` listing for a networking/telecom project
+(candidates: `nanguti-v1`, `site-kraft-systems-website`, others —
+verify by inspecting before auditing). Same read-only audit approach.
+Then Prompt 7 (AfriQ + MwalimuPLUS — historical, likely no local repos;
+may need Kevin's input), Prompt 8 (about/contact/SEO), Prompt 9
+(QA + deploy).
