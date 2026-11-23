@@ -6,8 +6,49 @@ Handoff file for portfolio implementation sessions. See
 
 ## Current phase and status
 
-- Phase: Prompt 5 — Hamaline Insurance case study — **complete**
-- Next prompt: **Prompt 6 — Simplifi Networks + BLVD GUIDE**
+- Phase: Prompt 6 — Simplifi Networks + BLVD GUIDE — **complete**
+- Next prompt: **Prompt 7 — AfriQ Networks + MwalimuPLUS / Ajira Connect**
+
+## Work completed (Prompt 6)
+
+- Read-only audit of `C:\thelab\blvdguide` (no .git dir).
+- `content/blvd-guide.ts` rewritten with verified detail:
+  - Discovery: FULLTEXT search, filters (category/price/capacity/
+    features/rating/featured/geo), Leaflet map + marker clustering +
+    bounds search + Haversine "near me", OSM Nominatim geocoding.
+  - Listings: owner dashboard CRUD, operational statuses, Spatie
+    Media Library (cover/gallery/documents), draft→pending→published/
+    rejected approval gated by venues.approve permission.
+  - Subscriptions: 4 package tiers with listing/image/featured
+    allowances; payment status tracked but NO payment gateway —
+    admin-activated; daily ExpireSubscriptionsCommand.
+  - Reviews: 1–5 ratings, pending→approved/rejected moderation,
+    favourites.
+  - Geo: country→county→city→locale, cascade deletes, on-the-fly
+    creation, Kenya seed data.
+  - Auth: Fortify 2FA + passkeys (WebAuthn), Spatie permissions
+    (Super Admin, Agent), policies, Activitylog, login logging.
+  - Frontend: React 19.2 strict TS, Inertia + Wayfinder, Radix,
+    Tailwind 4, Vite 8 + React Compiler.
+- `lib/projects.ts` — BLVD tech list: added Leaflet.
+- **Simplifi Networks: NO local repo** (Kevin changed computers and
+  handed the project over). `content/simplifi-networks.ts` remains at
+  spec-seeded level — facts limited to spec; role stays "Engineering
+  contributor" pending Kevin's confirmation.
+
+## Audit notes / do-not-publish (BLVD)
+
+- `database/seeders/DatabaseSeeder.php` contains a hardcoded admin
+  password — NOT used anywhere in portfolio content.
+- MapTiler API key referenced via env var only; not published.
+- Seeder emails (admin@blvdguide.test etc.) not published.
+- No live URL, deployment config, or metrics verified — none published.
+- Kevin's contribution unverifiable (no git history).
+
+## Commands run and results (Prompt 6)
+
+- `npm run lint` — clean.
+- `npm run build` — success; 14 routes prerender.
 
 ## Work completed (Prompt 5)
 
@@ -217,13 +258,18 @@ dependency, fully typed, static-export safe.
 - `next.config.ts` (until export config is intentionally added)
 - No deployment workflows exist yet — do not create without approval
 
+## Outstanding questions added (Prompt 6)
+
+- Simplifi Networks: Kevin's role/contribution, whether any repo or
+  documentation still exists, live URL, and reasons for leaving
+  PrestaShop (spec says "could not be customised" — confirm wording).
+- BLVD GUIDE: Kevin's contribution boundaries; release/launch status.
+
 ## Exact next task
 
-Run **Prompt 6**: Simplifi Networks + BLVD GUIDE. Candidate local repos:
-`C:\thelab\blvdguide` (BLVD GUIDE — verify) and possibly a Simplifi repo
-— check `C:\thelab` listing for a networking/telecom project
-(candidates: `nanguti-v1`, `site-kraft-systems-website`, others —
-verify by inspecting before auditing). Same read-only audit approach.
-Then Prompt 7 (AfriQ + MwalimuPLUS — historical, likely no local repos;
-may need Kevin's input), Prompt 8 (about/contact/SEO), Prompt 9
-(QA + deploy).
+Run **Prompt 7**: AfriQ Networks + MwalimuPLUS / Ajira Connect. Both
+are historical team projects (AfriQ ~4-person team; MwalimuPLUS core
+dev Oct 2018–Apr 2022 in ~11-person team). Local repos unlikely —
+check `C:\thelab` for candidates, otherwise content must come from
+Kevin's input. Keep team-contribution framing; do not claim sole
+ownership.

@@ -58,7 +58,7 @@ export const projects: Project[] = [
     category: "Marketplace",
     role: "Engineering contributor",
     featured: false,
-    technologies: ["Laravel", "React", "TypeScript", "Inertia", "Tailwind CSS"],
+    technologies: ["Laravel", "React", "TypeScript", "Inertia", "Tailwind CSS", "Leaflet"],
     published: true,
   },
   {
