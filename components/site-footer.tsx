@@ -1,12 +1,7 @@
 import Link from "next/link";
 
-async function getYear() {
-  "use cache";
-  return new Date().getFullYear();
-}
-
-export async function SiteFooter() {
-  const year = await getYear();
+export function SiteFooter() {
+  const year = new Date().getFullYear();
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
