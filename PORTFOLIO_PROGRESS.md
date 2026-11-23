@@ -6,8 +6,29 @@ Handoff file for portfolio implementation sessions. See
 
 ## Current phase and status
 
-- Phase: Prompt 1 — design system and shared site shell — **complete**
-- Next prompt: **Prompt 2 — homepage and projects index**
+- Phase: Prompt 2 — homepage and projects index — **complete**
+- Next prompt: **Prompt 3 — reusable case-study framework**
+
+## Work completed (Prompt 2)
+
+- `app/page.tsx` — full homepage: hero (name, positioning, Explore
+  projects / Contact CTAs), Selected work (2B Gamers Store + Hamaline as
+  featured `ProjectRow`s), More full-stack projects (Simplifi + BLVD
+  GUIDE featured rows + link to full index), Engineering approach
+  (six evidence-based cards), Earlier experience (AfriQ + MwalimuPLUS
+  compact cards with explicit team-contribution framing), Contact
+  (GitHub link verified; no invented email/LinkedIn). Page metadata
+  added.
+- `/projects` index (built in Prompt 1) already satisfies Prompt 2
+  requirements: all six entries, flagship prominence, category/role/
+  tech metadata, neutral placeholders — unchanged.
+- `app/about/page.tsx`, `app/contact/page.tsx` remain minimal
+  placeholders (detailed copy is Prompt 8 scope).
+
+## Commands run and results (Prompt 2)
+
+- `npm run lint` — clean.
+- `npm run build` — success; 14 routes, all six project paths static.
 
 ## Work completed (Prompt 1)
 
@@ -86,6 +107,10 @@ Handoff file for portfolio implementation sessions. See
 
 ## Exact next task
 
-Run **Prompt 2**: implement homepage sections (hero, selected work,
-engineering approach, experience snapshot, contact) and refine projects
-index. Case-study route content remains placeholder until Prompts 3–7.
+Run **Prompt 3**: build the reusable case-study page system — typed
+content model, project registry (done in `lib/projects.ts`, may be
+extended), case-study layout with the 12-section structure, in-page TOC,
+prev/next navigation, per-page metadata, `notFound()` (already works).
+Content source decision needed: MDX vs structured TypeScript — spec
+allows either; recommend structured TS/JSON content colocated under
+`content/` to avoid adding an MDX dependency for static export.
