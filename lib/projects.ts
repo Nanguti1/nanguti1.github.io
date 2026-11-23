@@ -25,7 +25,7 @@ export const projects: Project[] = [
     category: "E-commerce / business platform",
     role: "Full-stack development",
     featured: true,
-    technologies: ["Laravel", "PHP", "Inertia", "React", "Tailwind CSS", "MySQL", "M-PESA"],
+    technologies: ["Laravel", "PHP", "Inertia", "React", "TypeScript", "Tailwind CSS", "MySQL", "M-PESA"],
     published: true,
   },
   {

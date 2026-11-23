@@ -6,9 +6,48 @@ Handoff file for portfolio implementation sessions. See
 
 ## Current phase and status
 
-- Phase: Prompt 3 — reusable case-study framework — **complete**
-- Next prompt: **Prompt 4 — 2B Gamers Store case study** (needs source
-  repo access or Kevin's answers to fill verified detail)
+- Phase: Prompt 4 — 2B Gamers Store case study — **complete**
+- Next prompt: **Prompt 5 — Hamaline Insurance case study**
+
+## Work completed (Prompt 4)
+
+- Read-only audit of `C:\thelab\2bgamersstore` (no .git dir, no author
+  tags — Kevin's personal contribution NOT verifiable from repo).
+- `content/2b-gamers-store.ts` rewritten with verified implementation
+  detail: storefront/commerce modules, M-PESA STK Push + C2B lifecycle
+  (order matching, callback handling, retry, status polling), append-only
+  stock ledger (InventoryService, polymorphic movements, negative-stock
+  prevention, reversals), procurement draft→approved→received workflow,
+  repair jobs with parts tracking, POS with polymorphic sale items and
+  PDF receipts, event-driven operations (observers → queued listeners),
+  transactions on critical mutations, Fortify/Spatie/2FA, 36-test suite
+  with multi-PHP CI.
+- `lib/projects.ts` — 2B tech list updated (added TypeScript).
+
+## Audit findings vs spec (discrepancies resolved toward repo evidence)
+
+- PHP version: spec said 8.4; composer.json requires ^8.3 → case study
+  says "PHP 8.3+". CI tests 8.3–8.5.
+- Spec mentioned "email jobs/cron and backups" — audit found queued
+  notifications (verified) but NO scheduled tasks and no backup code
+  (likely infra-level). Case study describes queues/events only.
+- Live URL verified in repo config: 2bgamersstore.co.ke — published in
+  glance metadata.
+- M-PESA idempotency: order updates guarded by payment-status checks;
+  no transaction-id dedup found — case study does NOT claim stronger
+  idempotency than evidenced.
+
+## Do-not-publish notes (from audit)
+
+- `.env.example` contains an order-notification email
+  (g.nanguti@gmail.com) and GTM ID — neither is used in case-study copy.
+- No secrets were copied into portfolio content.
+
+## Outstanding questions added
+
+- Kevin's specific contribution boundaries for 2B Gamers Store (repo
+  has no git history).
+- Deployment/backup specifics if Kevin wants them mentioned.
 
 ## Work completed (Prompt 3)
 
@@ -31,6 +70,11 @@ Handoff file for portfolio implementation sessions. See
 
 Structured TypeScript under `content/` chosen over MDX — no new
 dependency, fully typed, static-export safe.
+
+## Commands run and results (Prompt 4)
+
+- `npm run lint` — clean.
+- `npm run build` — success; 14 routes prerender.
 
 ## Commands run and results (Prompt 3)
 
@@ -135,8 +179,10 @@ dependency, fully typed, static-export safe.
 
 ## Exact next task
 
-Run **Prompt 4**: deepen the 2B Gamers Store case study. To go beyond
-the spec-seeded content, either provide access to the project repository
-(read-only audit prompt in the pack) or answer the content questions.
-Then Prompt 5 (Hamaline), Prompt 6 (Simplifi + BLVD), Prompt 7 (AfriQ +
-MwalimuPLUS), Prompt 8 (about/contact/SEO), Prompt 9 (QA + deploy).
+Run **Prompt 5**: Hamaline Insurance case study. Likely repo:
+`C:\thelab\hims-v1` (name suggests "Hamaline Insurance Management
+System") — verify before auditing. Same read-only audit approach as
+Prompt 4, then deepen `content/hamaline-insurance.ts`. Then Prompt 6
+(Simplifi + BLVD; likely repos `blvdguide` and possibly others),
+Prompt 7 (AfriQ + MwalimuPLUS — historical projects, may have no local
+repos), Prompt 8 (about/contact/SEO), Prompt 9 (QA + deploy).
