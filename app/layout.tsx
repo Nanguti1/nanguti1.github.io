@@ -23,6 +23,21 @@ export const metadata: Metadata = {
   },
   description:
     "Engineering portfolio documenting selected software projects and engineering contributions by Kevin Wanyonyi.",
+  openGraph: {
+    title: "Kevin Wanyonyi — Engineering Portfolio",
+    description:
+      "Selected software projects and engineering contributions across commerce, insurance, marketplace, and business systems.",
+    url: "https://nanguti1.github.io",
+    siteName: "Kevin Wanyonyi — Engineering Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Kevin Wanyonyi — Engineering Portfolio",
+    description:
+      "Selected software projects and engineering contributions across commerce, insurance, marketplace, and business systems.",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

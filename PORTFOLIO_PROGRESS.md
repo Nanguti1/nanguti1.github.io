@@ -6,10 +6,31 @@ Handoff file for portfolio implementation sessions. See
 
 ## Current phase and status
 
-- Phase: Prompt 7 — AfriQ Networks + MwalimuPLUS / Ajira Connect —
-  **complete at spec-fact level** (no local repos exist; content
-  limited to spec + Kevin-confirmed facts)
-- Next prompt: **Prompt 8 — about/contact/SEO + editorial review**
+- Phase: Prompt 8 — about/contact/SEO + editorial review — **complete**
+- Next prompt: **Prompt 9 — final QA and GitHub Pages deployment**
+  (requires `output: 'export'` + deploy workflow — NOT yet done)
+
+## Work completed (Prompt 8)
+
+- `app/about/page.tsx` — real About page: background, linked list of
+  all six projects, experience section with team framing. No invented
+  credentials or years-of-experience claims.
+- `app/contact/page.tsx` — GitHub link (verified) + portfolio URL.
+  No email/LinkedIn published (none supplied).
+- `app/sitemap.ts`, `app/robots.ts` — sitemap covers all routes incl.
+  six project pages; robots allows all + sitemap reference.
+- `app/layout.tsx` — Open Graph + Twitter card metadata added.
+- Editorial scan: no banned language (revolutionary/seamless/10x/etc.),
+  no lorem ipsum, no TODOs, consistent project names/roles.
+
+## Kevin-confirmed updates (this session)
+
+- MwalimuPLUS: e-tutoring platform for Kenyan Grades 1–8 (CBC + 8-4-4),
+  KICD content, live classes, progress analytics, KPSA hardware
+  bundle, teacher resources, subscriptions. Ajira Connect mentioned
+  without invented detail.
+- AfriQ Networks stack: PHP, Laravel, React, MySQL, Node.js — added to
+  glance, content, and `lib/projects.ts`.
 
 ## Work completed (Prompt 6)
 
@@ -295,7 +316,22 @@ dependency, fully typed, static-export safe.
   production outcomes if any.
 - Both: any screenshots or documentation Kevin can supply.
 
+## Commands run and results (Prompt 8)
+
+- Editorial grep — clean.
+- `npm run lint` — clean.
+- `npm run build` — success; 16 routes incl. `/robots.txt` and
+  `/sitemap.xml`.
+
 ## Commands run and results (Prompt 7)
 
 - `npm run lint` — clean.
 - `npm run build` — success; 14 routes prerender.
+
+## Exact next task
+
+Run **Prompt 9**: final QA + GitHub Pages deployment. Required before
+deploy: add `output: 'export'` to `next.config.ts`, verify export
+output, add/verify `.github/workflows` Pages deploy, then verify live
+URLs. Do NOT deploy without explicit approval.
+

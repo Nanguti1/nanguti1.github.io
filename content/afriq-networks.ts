@@ -15,6 +15,7 @@ export const caseStudy: CaseStudy = {
     { label: "Product type", value: "HR and inventory systems" },
     { label: "Platform type", value: "Internal business systems" },
     { label: "Role", value: "Team contributor (team of 4, incl. CTO)" },
+    { label: "Stack", value: "PHP, Laravel, React, MySQL, Node.js" },
   ],
   sections: [
     {
@@ -23,7 +24,7 @@ export const caseStudy: CaseStudy = {
       blocks: [
         {
           type: "paragraph",
-          text: "The engagement was delivered by a four-person team including the CTO, so work was divided across members rather than carried by one developer. Delivery covered application development for the HR and inventory systems alongside infrastructure-side network configuration.",
+          text: "The engagement was delivered by a four-person team including the CTO, so work was divided across members rather than carried by one developer. The application work used a PHP/Laravel backend with a React frontend and MySQL datastore, with Node.js in the stack. Delivery also covered infrastructure-side network configuration.",
         },
       ],
     },
@@ -34,7 +35,7 @@ export const caseStudy: CaseStudy = {
         {
           type: "list",
           items: [
-            "HR system development — modules and features within the team's system",
+            "HR system development — modules and features within the team's Laravel/React system",
             "Inventory system development — modules and features within the team's system",
             "Network configuration tasks supporting the organisation's infrastructure",
           ],

@@ -65,22 +65,22 @@ export const projects: Project[] = [
     slug: "mwalimuplus",
     title: "MwalimuPLUS / Ajira Connect",
     summary:
-      "Core development work on education and opportunity platforms within a large engineering team, including M-PESA, Google APIs, and mentoring responsibilities.",
+      "Intelligent e-tutoring and digital learning platform for Kenyan primary and junior secondary students, developed as a core team member.",
     category: "Education / opportunity platform",
     role: "Core developer (team of ~11)",
     featured: false,
-    technologies: ["PHP", "Yii2", "JavaScript", "Bootstrap", "MySQL"],
+    technologies: ["PHP", "Yii2", "JavaScript", "Bootstrap", "MySQL", "M-PESA"],
     published: true,
   },
   {
     slug: "afriq-networks",
     title: "AfriQ Networks",
     summary:
-      "Contributions to HR and inventory systems and network configuration as part of a four-person team including the CTO.",
+      "Contributions to HR and inventory systems (PHP, Laravel, React, MySQL, Node.js) and network configuration as part of a four-person team including the CTO.",
     category: "HR / inventory",
     role: "Team contributor (team of 4)",
     featured: false,
-    technologies: [],
+    technologies: ["PHP", "Laravel", "React", "MySQL", "Node.js"],
     published: true,
   },
 ];
