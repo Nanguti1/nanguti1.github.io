@@ -6,8 +6,36 @@ Handoff file for portfolio implementation sessions. See
 
 ## Current phase and status
 
-- Phase: Prompt 2 — homepage and projects index — **complete**
-- Next prompt: **Prompt 3 — reusable case-study framework**
+- Phase: Prompt 3 — reusable case-study framework — **complete**
+- Next prompt: **Prompt 4 — 2B Gamers Store case study** (needs source
+  repo access or Kevin's answers to fill verified detail)
+
+## Work completed (Prompt 3)
+
+- `lib/case-study.ts` — typed content model: `ContentBlock`
+  (paragraph/list), `CaseStudySection`, `GlanceItem`, `CaseStudy`.
+- `lib/case-studies.ts` — slug → CaseStudy registry.
+- `content/*.ts` — six content files seeded **only** with facts from
+  `ENGINEERING_PORTFOLIO_IMPLEMENTATION.md`. Unsupported sections
+  (screenshots, challenges, outcomes, "My contribution" where unconfirmed)
+  are omitted rather than published as placeholders.
+- `components/case-study/` — `case-study-layout.tsx` (hero, intro,
+  at-a-glance, TOC, sections, prev/next), `glance.tsx`,
+  `table-of-contents.tsx` (anchor nav, hidden when <2 sections),
+  `prev-next.tsx` (ordered by `lib/projects.ts`).
+- `app/projects/[slug]/page.tsx` — real page: generateStaticParams for
+  all six slugs, per-page metadata, `notFound()` for missing project or
+  case study.
+
+## Content source decision
+
+Structured TypeScript under `content/` chosen over MDX — no new
+dependency, fully typed, static-export safe.
+
+## Commands run and results (Prompt 3)
+
+- `npm run lint` — clean after removing unused import.
+- `npm run build` — success; all six case-study routes prerender.
 
 ## Work completed (Prompt 2)
 
@@ -107,10 +135,8 @@ Handoff file for portfolio implementation sessions. See
 
 ## Exact next task
 
-Run **Prompt 3**: build the reusable case-study page system — typed
-content model, project registry (done in `lib/projects.ts`, may be
-extended), case-study layout with the 12-section structure, in-page TOC,
-prev/next navigation, per-page metadata, `notFound()` (already works).
-Content source decision needed: MDX vs structured TypeScript — spec
-allows either; recommend structured TS/JSON content colocated under
-`content/` to avoid adding an MDX dependency for static export.
+Run **Prompt 4**: deepen the 2B Gamers Store case study. To go beyond
+the spec-seeded content, either provide access to the project repository
+(read-only audit prompt in the pack) or answer the content questions.
+Then Prompt 5 (Hamaline), Prompt 6 (Simplifi + BLVD), Prompt 7 (AfriQ +
+MwalimuPLUS), Prompt 8 (about/contact/SEO), Prompt 9 (QA + deploy).

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SectionHeading } from "@/components/section-heading";
+import { CaseStudyLayout } from "@/components/case-study/case-study-layout";
+import { getCaseStudy } from "@/lib/case-studies";
 import { getProject, projects } from "@/lib/projects";
 
 export function generateStaticParams() {
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const project = getProject(slug);
   if (!project) return {};
   return {
-    title: project.title,
+    title: `${project.title} — Case study`,
     description: project.summary,
   };
 }
@@ -24,14 +25,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
   const project = getProject(slug);
-  if (!project) notFound();
+  const caseStudy = getCaseStudy(slug);
+  if (!project || !caseStudy) notFound();
 
-  return (
-    <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-24">
-      <SectionHeading
-        title={project.title}
-        description="Detailed case-study content is being implemented — this page is a temporary placeholder."
-      />
-    </main>
-  );
+  return <CaseStudyLayout project={project} caseStudy={caseStudy} />;
 }
