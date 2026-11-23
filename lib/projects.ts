@@ -45,7 +45,7 @@ export const projects: Project[] = [
     summary:
       "Networking and telecommunications distribution platform built from the ground up on a Laravel API with a Next.js storefront and Laravel Nova administration.",
     category: "E-commerce / business platform",
-    role: "Engineering contributor",
+    role: "End-to-end developer (backend, API, admin, storefront)",
     featured: false,
     technologies: ["Laravel", "Laravel Nova", "Next.js", "MySQL", "Tailwind CSS"],
     published: true,

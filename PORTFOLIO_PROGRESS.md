@@ -6,8 +6,10 @@ Handoff file for portfolio implementation sessions. See
 
 ## Current phase and status
 
-- Phase: Prompt 6 — Simplifi Networks + BLVD GUIDE — **complete**
-- Next prompt: **Prompt 7 — AfriQ Networks + MwalimuPLUS / Ajira Connect**
+- Phase: Prompt 7 — AfriQ Networks + MwalimuPLUS / Ajira Connect —
+  **complete at spec-fact level** (no local repos exist; content
+  limited to spec + Kevin-confirmed facts)
+- Next prompt: **Prompt 8 — about/contact/SEO + editorial review**
 
 ## Work completed (Prompt 6)
 
@@ -32,9 +34,12 @@ Handoff file for portfolio implementation sessions. See
     Tailwind 4, Vite 8 + React Compiler.
 - `lib/projects.ts` — BLVD tech list: added Leaflet.
 - **Simplifi Networks: NO local repo** (Kevin changed computers and
-  handed the project over). `content/simplifi-networks.ts` remains at
-  spec-seeded level — facts limited to spec; role stays "Engineering
-  contributor" pending Kevin's confirmation.
+  handed the project over). Kevin confirmed (this session): he was the
+  **end-to-end developer — backend, API, admin panel (Nova), and
+  storefront (Next.js)**. `lib/projects.ts` role updated; case study
+  now has architecture + "My contribution" sections. Feature-level
+  detail still limited to spec (no payments/shipping/etc. claimed).
+  Remaining open questions: live URL, release status.
 
 ## Audit notes / do-not-publish (BLVD)
 
@@ -265,11 +270,32 @@ dependency, fully typed, static-export safe.
   PrestaShop (spec says "could not be customised" — confirm wording).
 - BLVD GUIDE: Kevin's contribution boundaries; release/launch status.
 
-## Exact next task
+## Work completed (Prompt 7)
 
-Run **Prompt 7**: AfriQ Networks + MwalimuPLUS / Ajira Connect. Both
-are historical team projects (AfriQ ~4-person team; MwalimuPLUS core
-dev Oct 2018–Apr 2022 in ~11-person team). Local repos unlikely —
-check `C:\thelab` for candidates, otherwise content must come from
-Kevin's input. Keep team-contribution framing; do not claim sole
-ownership.
+- Confirmed no local repos for either project (no Yii2 composer
+  packages, no afriq/mwalimu/ajira directory names).
+- `content/afriq-networks.ts` — team-context + contribution sections
+  using only spec facts (4-person team incl. CTO; HR system, inventory
+  system, network config).
+- `content/mwalimuplus.ts` — platforms, integrations (M-PESA, Google
+  APIs, Google AI Studio), team practice (Jira/Teams, peer reviews,
+  demos, live testing), mentoring; dates Oct 2018–Apr 2022 and ~11-dev
+  team structure.
+- Removed "being confirmed" placeholder sentences — public pages
+  contain only statements Kevin can stand behind.
+
+## Outstanding questions for Kevin (Prompt 7 gaps)
+
+- AfriQ Networks: job title/dates, tech stack, which HR and inventory
+  modules Kevin personally built, what network configuration entailed,
+  whether systems reached production.
+- MwalimuPLUS / Ajira Connect: what each platform actually does and
+  who uses it; which modules Kevin worked on; concrete examples of the
+  M-PESA / Google / AI Studio integrations; mentoring examples;
+  production outcomes if any.
+- Both: any screenshots or documentation Kevin can supply.
+
+## Commands run and results (Prompt 7)
+
+- `npm run lint` — clean.
+- `npm run build` — success; 14 routes prerender.

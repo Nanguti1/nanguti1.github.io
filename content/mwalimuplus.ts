@@ -4,11 +4,11 @@ export const caseStudy: CaseStudy = {
   intro: [
     {
       type: "paragraph",
-      text: "MwalimuPLUS and Ajira Connect were education and opportunity platforms developed by a large engineering team. Kevin worked as a core developer from October 2018 to April 2022.",
+      text: "MwalimuPLUS and Ajira Connect were platforms developed by a large engineering organisation. Kevin worked as a core developer on both from October 2018 to April 2022.",
     },
     {
       type: "paragraph",
-      text: "The team comprised roughly eleven developers alongside a project manager, systems analyst, QA, and technical director. Development followed structured practices: Jira and Microsoft Teams for collaboration, peer reviews, demonstrations, and live testing.",
+      text: "The team comprised roughly eleven developers plus a project manager, systems analyst, QA, and technical director — a structured product environment with defined roles, reviews, and release testing rather than an ad-hoc build.",
     },
   ],
   glance: [
@@ -26,21 +26,31 @@ export const caseStudy: CaseStudy = {
       blocks: [
         {
           type: "paragraph",
-          text: "MwalimuPLUS and Ajira Connect served education and opportunity workflows. Specific modules and responsibilities are being confirmed before publication.",
+          text: "MwalimuPLUS and Ajira Connect served education and opportunity workflows for their users. Kevin contributed as a core developer across both platforms within the larger team.",
         },
       ],
     },
     {
-      id: "integrations-and-collaboration",
-      title: "Integrations and team practice",
+      id: "integrations",
+      title: "Third-party integrations",
       blocks: [
         {
           type: "paragraph",
-          text: "The platforms integrated third-party services including M-PESA, Google APIs, and Google AI Studio. Day-to-day work ran through Jira and Microsoft Teams, with peer code reviews, demonstrations, and live testing before release.",
+          text: "The platforms integrated M-PESA for mobile payments, Google APIs, and Google AI Studio. Integration work ran alongside feature development inside the team's standard workflow.",
+        },
+      ],
+    },
+    {
+      id: "team-practice",
+      title: "Team practice and growth",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Development followed a structured process: Jira for tracking, Microsoft Teams for communication, peer code reviews, demonstrations, and live testing before release. Working inside this environment — across roughly four years — built experience in long-running product development, code review discipline, and cross-functional collaboration.",
         },
         {
           type: "paragraph",
-          text: "Kevin also mentored interns during this period, supporting the team's onboarding and review practices.",
+          text: "Kevin also mentored interns during this period, supporting onboarding, reviews, and day-to-day technical questions.",
         },
       ],
     },
