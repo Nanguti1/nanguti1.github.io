@@ -335,3 +335,33 @@ deploy: add `output: 'export'` to `next.config.ts`, verify export
 output, add/verify `.github/workflows` Pages deploy, then verify live
 URLs. Do NOT deploy without explicit approval.
 
+
+## Prompt 9 outcome
+
+- `next.config.ts`: `output: 'export'` + `trailingSlash: true`.
+  Removed `cacheComponents`/`partialPrefetching`/`agentFeedback`
+  (incompatible with export; footer `use cache` reverted to plain
+  build-time year). `force-static` kept on sitemap/robots.
+- `.github/workflows/deploy.yml` added: npm ci -> build ->
+  configure-pages -> upload-pages-artifact(out) -> deploy-pages.
+- Verified locally: `out/` has index.html per route incl. all six
+  project pages, robots.txt, sitemap.xml.
+- Committed `0303c3c` and pushed to main successfully.
+- Homepage returned HTTP 200 post-deploy. Nested-route checks were
+  interrupted (connectivity); re-verify manually if desired.
+- REMAINING (user action): GitHub repo Settings -> Pages -> Source
+  must be 'GitHub Actions'. If set to branch deploy, change it or
+  re-run the workflow.
+
+
+## Deployment verified
+
+- Pages source switched to GitHub Actions (user action). Empty commit `5f6b33f`
+  pushed; deploy workflow ran; live site verified.
+- https://nanguti1.github.io/ serves the portfolio (title: Engineering
+  Portfolio). All routes 200: /, /projects, all six case studies,
+  /about, /contact, /sitemap.xml, /robots.txt.
+- Content spot-checked live: homepage shows Kevin Wanyonyi + M-PESA;
+  2B case study shows stock_movements + iankumu/mpesa detail.
+- STATUS: DEPLOYED AND VERIFIED.
+
