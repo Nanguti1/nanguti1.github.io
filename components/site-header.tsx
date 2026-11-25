@@ -38,13 +38,21 @@ export function SiteHeader() {
                   <Link
                     href={link.href}
                     aria-current={active ? "page" : undefined}
-                    className={`text-sm transition-colors ${
+                    className={`group relative py-2 font-mono text-xs uppercase tracking-widest transition-colors ${
                       active
                         ? "text-foreground"
-                        : "text-muted hover:text-foreground"
+                        : "text-subtle hover:text-foreground"
                     }`}
                   >
                     {link.label}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute inset-x-0 -bottom-0.5 h-px bg-accent transition-transform duration-300 ${
+                        active
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
                   </Link>
                 </li>
               );

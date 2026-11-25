@@ -1,9 +1,11 @@
 import type { CaseStudy } from "@/lib/case-study";
 import type { Project } from "@/lib/projects";
+import { projects } from "@/lib/projects";
 import { Glance } from "@/components/case-study/glance";
 import { TableOfContents } from "@/components/case-study/table-of-contents";
 import { PrevNext } from "@/components/case-study/prev-next";
 import { TechTags } from "@/components/tech-tags";
+import { ProjectCover } from "@/components/project-cover";
 
 interface CaseStudyLayoutProps {
   project: Project;
@@ -11,23 +13,38 @@ interface CaseStudyLayoutProps {
 }
 
 export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
+  const index = String(
+    projects.findIndex((p) => p.slug === project.slug) + 1,
+  ).padStart(2, "0");
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-16 sm:py-24">
       {/* Hero */}
-      <header className="mb-16 max-w-3xl">
-        <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
-          {project.category} — Case study
-        </p>
-        <h1 className="text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
-          {project.title}
-        </h1>
-        <p className="mt-6 text-lg leading-8 text-muted">{project.summary}</p>
-        <div className="mt-6 flex flex-col gap-3">
-          <p className="text-sm text-subtle">
-            Role:{" "}
-            <span className="text-muted">{project.role}</span>
+      <header className="mb-12">
+        <div className="relative mb-10 overflow-hidden rounded-2xl">
+          <ProjectCover
+            index={index}
+            label={project.title}
+            caption={`${project.category} — case study`}
+            accent={Number(index) % 2 === 0 ? "accent-2" : "accent"}
+            className="aspect-[21/9] w-full rounded-2xl"
+          />
+          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-background via-background/20 to-transparent" />
+        </div>
+        <div className="max-w-3xl">
+          <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
+            {index} — {project.category} — Case study
           </p>
-          <TechTags technologies={project.technologies} />
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
+            {project.title}
+          </h1>
+          <p className="mt-6 text-lg leading-8 text-muted">{project.summary}</p>
+          <div className="mt-6 flex flex-col gap-3">
+            <p className="text-sm text-subtle">
+              Role:{" "}
+              <span className="text-muted">{project.role}</span>
+            </p>
+            <TechTags technologies={project.technologies} />
+          </div>
         </div>
       </header>
 

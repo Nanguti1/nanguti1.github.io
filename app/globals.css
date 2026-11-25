@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0b0d12;
-  --color-surface: #121722;
-  --color-elevated: #171e2b;
-  --color-foreground: #f3f5f8;
-  --color-muted: #a4adbc;
-  --color-subtle: #778195;
-  --color-line: rgb(255 255 255 / 0.1);
-  --color-accent: #8b9cff;
-  --color-accent-2: #71d5c2;
+  --color-background: #090b11;
+  --color-surface: #0f1420;
+  --color-card: #151d2b;
+  --color-elevated: #1b2638;
+  --color-foreground: #f5f7fc;
+  --color-muted: #a7b1c2;
+  --color-subtle: #768399;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-line-strong: rgb(255 255 255 / 0.14);
+  --color-accent: #8798ff;
+  --color-accent-2: #66d8c5;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -21,13 +23,81 @@ body {
 }
 
 ::selection {
-  background: rgb(139 156 255 / 0.28);
+  background: rgb(135 152 255 / 0.3);
 }
 
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: 2px;
+}
+
+/* Fine engineering grid texture */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.bg-grid-fine {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Gentle floating for hero annotations */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-float {
+  animation: float-y 7s ease-in-out infinite;
+}
+
+.animate-dash {
+  animation: dash-flow 1.4s linear infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -38,5 +108,11 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
