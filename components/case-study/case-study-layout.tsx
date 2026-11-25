@@ -29,7 +29,7 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
           <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-background via-background/20 to-transparent" />
         </div>
         <div className="max-w-3xl">
-          <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent-2">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.08em] text-accent-2">
             {index} — {project.category} — Case study
           </p>
           <h1 className="text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">

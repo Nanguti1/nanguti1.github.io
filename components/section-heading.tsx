@@ -6,15 +6,15 @@ interface SectionHeadingProps {
 
 export function SectionHeading({ title, description, id }: SectionHeadingProps) {
   return (
-    <div className="mb-10 max-w-2xl">
+    <div className="mb-12 max-w-2xl">
       <h2
         id={id}
-        className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+        className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em] text-foreground"
       >
         {title}
       </h2>
       {description ? (
-        <p className="mt-3 text-base leading-7 text-muted">{description}</p>
+        <p className="mt-4 text-[15px] leading-6 text-muted">{description}</p>
       ) : null}
     </div>
   );

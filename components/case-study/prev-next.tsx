@@ -21,7 +21,7 @@ export function PrevNext({ slug }: PrevNextProps) {
           href={`/projects/${prev.slug}`}
           className="group flex flex-col gap-1"
         >
-          <span className="font-mono text-xs uppercase tracking-widest text-subtle">
+          <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             ← Previous
           </span>
           <span className="text-base font-medium text-foreground transition-colors group-hover:text-accent">
@@ -36,7 +36,7 @@ export function PrevNext({ slug }: PrevNextProps) {
           href={`/projects/${next.slug}`}
           className="group flex flex-col items-start gap-1 text-right sm:items-end"
         >
-          <span className="font-mono text-xs uppercase tracking-widest text-subtle">
+          <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             Next →
           </span>
           <span className="text-base font-medium text-foreground transition-colors group-hover:text-accent">

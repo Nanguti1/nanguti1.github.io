@@ -25,7 +25,7 @@ export function HeroVisual() {
         <div className="relative flex h-32 w-32 items-center justify-center rounded-2xl border border-line-strong bg-card shadow-[0_0_60px_-15px_rgba(255,255,255,0.15)]">
           <div className="bg-grid-fine absolute inset-0 rounded-2xl opacity-60" />
           <div className="relative text-center">
-            <span className="block font-mono text-[10px] uppercase tracking-widest text-subtle">
+            <span className="block font-mono text-xs uppercase tracking-[0.08em] text-subtle">
               core
             </span>
             <span className="block font-mono text-sm font-semibold text-foreground">

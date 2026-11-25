@@ -38,7 +38,7 @@ export function SiteHeader() {
                   <Link
                     href={link.href}
                     aria-current={active ? "page" : undefined}
-                    className={`group relative py-2 font-mono text-xs uppercase tracking-widest transition-colors ${
+                    className={`group relative py-2 font-mono text-xs uppercase tracking-[0.08em] transition-colors ${
                       active
                         ? "text-foreground"
                         : "text-subtle hover:text-foreground"

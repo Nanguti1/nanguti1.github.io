@@ -35,7 +35,7 @@ export default function Home() {
         />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pb-24 pt-20 sm:pt-28 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:pb-32">
           <div>
-            <p className="mb-6 inline-flex items-center gap-3 rounded-full border border-line bg-surface/80 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-muted backdrop-blur">
+            <p className="mb-6 inline-flex items-center gap-3 rounded-full border border-line bg-surface/80 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.08em] text-muted backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-2" aria-hidden="true" />
               Engineering Portfolio — Full-Stack
             </p>
@@ -80,7 +80,7 @@ export default function Home() {
                   <dt className="font-mono text-lg font-semibold text-foreground">
                     {value}
                   </dt>
-                  <dd className="mt-1 font-mono text-[10px] uppercase tracking-widest text-subtle">
+                  <dd className="mt-1 font-mono text-xs uppercase tracking-[0.08em] text-subtle">
                     {label}
                   </dd>
                 </div>
@@ -95,7 +95,7 @@ export default function Home() {
 
       {/* Flagship showcases */}
       <section className="border-t border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
           <Reveal>
             <SectionHeading
               title="Flagship work"
@@ -128,7 +128,7 @@ export default function Home() {
 
       {/* Supporting projects */}
       <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
           <Reveal>
             <SectionHeading
               title="More full-stack projects"
@@ -162,7 +162,7 @@ export default function Home() {
 
       {/* Engineering approach */}
       <section className="border-t border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
           <Reveal>
             <SectionHeading
               title="Engineering approach"
@@ -177,26 +177,30 @@ export default function Home() {
 
       {/* Earlier experience */}
       <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <Reveal>
-            <SectionHeading
-              title="Earlier experience"
-              description="Team-based engineering work that preceded and complements the flagship projects."
-            />
-          </Reveal>
-          <Reveal delay={100}>
-            <ExperienceTimeline />
-          </Reveal>
-          <p className="mt-10 max-w-2xl text-sm leading-6 text-subtle">
-            These were team efforts — contributions are described as such in
-            each case study.
-          </p>
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
+            <Reveal>
+              <div>
+                <SectionHeading
+                  title="Earlier experience"
+                  description="Team-based engineering work that preceded and complements the flagship projects."
+                />
+                <p className="max-w-xs text-sm leading-6 text-subtle">
+                  These were team efforts — contributions are described as
+                  such in each case study.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <ExperienceTimeline />
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* Contact */}
       <section className="border-t border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
           <Reveal>
             <SectionHeading
               title="Contact"

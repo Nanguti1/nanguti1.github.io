@@ -31,7 +31,7 @@ export function FlagshipShowcase({
       <div className={visualRight ? "lg:order-1" : ""}>
         <div className="mb-5 flex items-baseline gap-4">
           <span className="font-mono text-sm text-muted">{index}</span>
-          <span className="font-mono text-xs uppercase tracking-widest text-subtle">
+          <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             {project.category}
           </span>
           <span className="hidden h-px flex-1 bg-line sm:block" aria-hidden="true" />

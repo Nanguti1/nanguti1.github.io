@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-24">
+    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16 sm:py-24">
       <SectionHeading
         title="About"
         description="Full-stack software engineer focused on practical web applications and business systems."

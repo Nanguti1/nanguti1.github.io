@@ -8,7 +8,7 @@ export function TableOfContents({ sections }: TableOfContentsProps) {
   if (sections.length < 2) return null;
   return (
     <nav aria-label="On this page" className="mb-12">
-      <p className="mb-3 font-mono text-xs uppercase tracking-widest text-subtle">
+      <p className="mb-3 font-mono text-xs uppercase tracking-[0.08em] text-subtle">
         On this page
       </p>
       <ol className="flex flex-col gap-2 border-l border-line pl-4">

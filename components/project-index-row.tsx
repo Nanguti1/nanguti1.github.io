@@ -35,7 +35,7 @@ export function ProjectIndexRow({ project, index }: ProjectIndexRowProps) {
             {project.category}
           </span>
         </div>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
+        <p className="mt-2 max-w-2xl text-[15px] leading-6 text-muted">
           {project.summary}
         </p>
         <div className="mt-4">

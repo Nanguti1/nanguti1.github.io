@@ -31,7 +31,7 @@ export function ExperienceTimeline() {
               <span className="h-1.5 w-1.5 rounded-full bg-accent-2" />
             </span>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <span className="font-mono text-xs uppercase tracking-widest text-accent-2">
+              <span className="font-mono text-xs uppercase tracking-[0.08em] text-accent-2">
                 {entry.period}
               </span>
               <h3 className="text-xl font-semibold tracking-tight text-foreground">
@@ -43,7 +43,7 @@ export function ExperienceTimeline() {
                 </Link>
               </h3>
             </div>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
+            <p className="mt-2 max-w-2xl text-[15px] leading-6 text-muted">
               {project.summary}
             </p>
             <p className="mt-2 text-sm text-subtle">{entry.note}</p>

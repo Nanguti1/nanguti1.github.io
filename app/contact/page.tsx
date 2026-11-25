@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-24">
+    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16 sm:py-24">
       <SectionHeading
         title="Contact"
         description="For project inquiries, collaboration, or questions about the work documented in this portfolio."

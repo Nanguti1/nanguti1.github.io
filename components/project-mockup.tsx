@@ -36,7 +36,7 @@ export function ProjectMockup({
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
         </div>
         <div className="flex min-w-0 flex-1 items-center rounded-md border border-line bg-background px-3 py-1">
-          <span className="truncate font-mono text-[11px] text-subtle">
+          <span className="truncate font-mono text-xs text-subtle">
             {host}
           </span>
         </div>
@@ -74,7 +74,7 @@ function MockupBody({ title }: { title: string }) {
       {/* content area */}
       <div className="flex min-w-0 flex-1 flex-col gap-3 p-4 sm:p-5">
         <div className="flex items-center justify-between gap-3">
-          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-subtle">
+          <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             {title}
           </span>
           <span className="h-2.5 w-16 rounded-sm bg-line" />

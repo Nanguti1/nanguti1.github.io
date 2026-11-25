@@ -9,7 +9,7 @@ export function Glance({ items }: GlanceProps) {
     <section aria-labelledby="at-a-glance">
       <h2
         id="at-a-glance"
-        className="mb-4 font-mono text-xs uppercase tracking-widest text-subtle"
+        className="mb-4 font-mono text-xs uppercase tracking-[0.08em] text-subtle"
       >
         At a glance
       </h2>

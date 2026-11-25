@@ -18,7 +18,7 @@ export default function ProjectsPage() {
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-24">
+    <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-16 sm:py-24">
       <Reveal>
         <SectionHeading
           title="Projects"
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
                   <span className="font-mono text-sm text-muted">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-mono text-xs uppercase tracking-widest text-subtle">
+                  <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
                     {project.category}
                   </span>
                 </div>
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
       {/* Supporting projects */}
       <div className="mt-20">
         <Reveal>
-          <h2 className="mb-2 font-mono text-xs uppercase tracking-widest text-subtle">
+          <h2 className="mb-2 font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             Additional projects &amp; experience
           </h2>
         </Reveal>
