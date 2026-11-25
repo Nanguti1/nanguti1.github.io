@@ -7,7 +7,9 @@ import { ExperienceTimeline } from "@/components/experience-timeline";
 import { Approach } from "@/components/approach";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { getProject, type Project } from "@/lib/projects";
+import { ContactMethods } from "@/components/contact-methods";
+import { getProject, projects, type Project } from "@/lib/projects";
+import { siteConfig } from "@/lib/site-config";
 
 const supportingSlugs = ["simplifi-networks", "blvd-guide"];
 
@@ -23,6 +25,15 @@ export default function Home() {
   const supporting = supportingSlugs
     .map(getProject)
     .filter((p): p is Project => p !== undefined);
+
+  const heroStats = [
+    { value: String(projects.length), label: "published case studies" },
+    {
+      value: String(projects.filter((p) => p.featured).length),
+      label: "flagship systems",
+    },
+    ...siteConfig.heroStats.filter((s) => s.value !== null),
+  ];
 
   return (
     <main className="flex-1">
@@ -70,18 +81,14 @@ export default function Home() {
                 Contact
               </Link>
             </div>
-            <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-line pt-6">
-              {[
-                ["06", "case studies"],
-                ["Laravel · React", "core stack"],
-                ["M-PESA", "payments"],
-              ].map(([value, label]) => (
-                <div key={label}>
+            <dl className="mt-14 flex max-w-lg flex-wrap gap-x-10 gap-y-6 border-t border-line pt-6">
+              {heroStats.map((stat) => (
+                <div key={stat.label}>
                   <dt className="font-mono text-lg font-semibold text-foreground">
-                    {value}
+                    {stat.value}
                   </dt>
                   <dd className="mt-1 font-mono text-xs uppercase tracking-[0.08em] text-subtle">
-                    {label}
+                    {stat.label}
                   </dd>
                 </div>
               ))}
@@ -163,15 +170,24 @@ export default function Home() {
       {/* Engineering approach */}
       <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
-          <Reveal>
-            <SectionHeading
-              title="Engineering approach"
-              description="How the work on this portfolio is built and documented."
-            />
-          </Reveal>
-          <Reveal delay={100}>
-            <Approach />
-          </Reveal>
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
+            <Reveal>
+              <div className="lg:sticky lg:top-24">
+                <SectionHeading
+                  title="Engineering approach"
+                  description="How the work on this portfolio is built and documented."
+                />
+                <p className="max-w-xs text-[15px] leading-6 text-muted">
+                  The work on this portfolio is built the way the systems it
+                  documents are built — around real workflows, explicit
+                  boundaries, and engineering decisions that can be defended.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <Approach />
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -208,22 +224,7 @@ export default function Home() {
             />
           </Reveal>
           <Reveal delay={100}>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href="https://github.com/Nanguti1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-12 w-fit items-center rounded-full bg-accent px-7 text-sm font-medium text-background transition-colors hover:bg-accent-bright"
-              >
-                GitHub — Nanguti1
-              </a>
-              <Link
-                href="/contact"
-                className="inline-flex h-12 w-fit items-center rounded-full border border-line-strong px-7 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
-              >
-                Contact page
-              </Link>
-            </div>
+            <ContactMethods />
           </Reveal>
         </div>
       </section>

@@ -19,7 +19,10 @@ export function FlagshipShowcase({
   imageAlt,
 }: FlagshipShowcaseProps) {
   return (
-    <article className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+    <Link
+      href={`/projects/${project.slug}`}
+      className="group grid items-center gap-10 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent lg:grid-cols-2 lg:gap-16"
+    >
       <div className={visualRight ? "lg:order-2" : ""}>
         <ProjectMockup
           title={project.title}
@@ -37,12 +40,7 @@ export function FlagshipShowcase({
           <span className="hidden h-px flex-1 bg-line sm:block" aria-hidden="true" />
         </div>
         <h3 className="text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
-          <Link
-            href={`/projects/${project.slug}`}
-            className="transition-colors hover:text-accent"
-          >
-            {project.title}
-          </Link>
+          {project.title}
         </h3>
         <p className="mt-5 max-w-xl text-base leading-7 text-muted">
           {project.summary}
@@ -50,13 +48,13 @@ export function FlagshipShowcase({
         <p className="mt-3 text-sm text-subtle">
           Role: <span className="text-muted">{project.role}</span>
         </p>
+        {project.statusLine ? (
+          <p className="mt-2 font-mono text-xs text-subtle">{project.statusLine}</p>
+        ) : null}
         <div className="mt-6">
           <TechTags technologies={project.technologies} />
         </div>
-        <Link
-          href={`/projects/${project.slug}`}
-          className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent transition-colors hover:text-accent-bright"
-        >
+        <span className="mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent">
           <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-bright">
             Read the case study
           </span>
@@ -66,8 +64,8 @@ export function FlagshipShowcase({
           >
             →
           </span>
-        </Link>
+        </span>
       </div>
-    </article>
+    </Link>
   );
 }

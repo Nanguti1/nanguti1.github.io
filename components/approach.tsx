@@ -1,5 +1,3 @@
-import { Reveal } from "@/components/reveal";
-
 const principles = [
   {
     title: "Business workflows first",
@@ -29,28 +27,21 @@ const principles = [
 
 export function Approach() {
   return (
-    <div>
-      <p className="mb-12 max-w-2xl text-lg leading-8 text-muted">
-        The work on this portfolio is built the way the systems it documents
-        are built — around real workflows, explicit boundaries, and
-        engineering decisions that can be defended.
-      </p>
-      <ol className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
-        {principles.map((principle, i) => (
-          <Reveal key={principle.title} delay={(i % 2) * 80}>
-            <li className="group relative border-l border-line-strong pl-6 transition-colors hover:border-line-strong">
-              <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-line-strong bg-background transition-colors group-hover:bg-elevated" aria-hidden="true" />
-              <span className="mb-2 block font-mono text-xs text-muted">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                {principle.title}
-              </h3>
-              <p className="mt-2 text-[15px] leading-6 text-muted">{principle.body}</p>
-            </li>
-          </Reveal>
-        ))}
-      </ol>
-    </div>
+    <ol className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+      {principles.map((principle, i) => (
+        <li
+          key={principle.title}
+          className="flex flex-col rounded-xl border border-line bg-surface p-6 transition-colors hover:border-line-strong"
+        >
+          <span className="mb-4 font-mono text-sm text-muted">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <h3 className="text-lg font-semibold tracking-tight text-foreground">
+            {principle.title}
+          </h3>
+          <p className="mt-3 text-[15px] leading-6 text-muted">{principle.body}</p>
+        </li>
+      ))}
+    </ol>
   );
 }

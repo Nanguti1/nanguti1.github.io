@@ -30,7 +30,10 @@ export default function ProjectsPage() {
       <div className="flex flex-col gap-16">
         {featured.map((project, i) => (
           <Reveal key={project.slug} delay={i * 100}>
-            <article className="grid items-center gap-8 rounded-2xl border border-line bg-card p-6 sm:p-10 lg:grid-cols-[1fr_380px]">
+            <Link
+              href={`/projects/${project.slug}`}
+              className="group grid items-center gap-8 rounded-2xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:p-10 lg:grid-cols-[1fr_380px]"
+            >
               <div>
                 <div className="mb-4 flex items-baseline gap-4">
                   <span className="font-mono text-sm text-muted">
@@ -40,13 +43,8 @@ export default function ProjectsPage() {
                     {project.category}
                   </span>
                 </div>
-                <h2 className="text-3xl font-semibold tracking-tight text-foreground">
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="transition-colors hover:text-accent"
-                  >
-                    {project.title}
-                  </Link>
+                <h2 className="text-3xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-accent">
+                  {project.title}
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-7 text-muted">
                   {project.summary}
@@ -54,13 +52,15 @@ export default function ProjectsPage() {
                 <p className="mt-3 text-sm text-subtle">
                   Role: <span className="text-muted">{project.role}</span>
                 </p>
+                {project.statusLine ? (
+                  <p className="mt-2 font-mono text-xs text-subtle">
+                    {project.statusLine}
+                  </p>
+                ) : null}
                 <div className="mt-6">
                   <TechTags technologies={project.technologies} />
                 </div>
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent transition-colors hover:text-accent-bright"
-                >
+                <span className="mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent">
                   <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-bright">
                     Read the case study
                   </span>
@@ -70,10 +70,13 @@ export default function ProjectsPage() {
                   >
                     →
                   </span>
-                </Link>
+                </span>
               </div>
-              <ProjectMockup title={project.title} className="w-full" />
-            </article>
+              <ProjectMockup
+                title={project.title}
+                className="w-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+            </Link>
           </Reveal>
         ))}
       </div>

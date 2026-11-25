@@ -14,6 +14,12 @@ export interface Project {
   featured: boolean;
   technologies: string[];
   published: boolean;
+  /**
+   * Optional status line shown on project cards, e.g.
+   * "Live at https://example.com — serving N users".
+   * TODO: fill in verified values; leave null to hide.
+   */
+  statusLine?: string | null;
 }
 
 export const projects: Project[] = [
