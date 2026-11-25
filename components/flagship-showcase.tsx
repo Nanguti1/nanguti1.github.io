@@ -21,7 +21,7 @@ export function FlagshipShowcase({
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group grid grid-cols-1 items-center gap-8 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent lg:grid-cols-2 lg:gap-16"
+      className="group grid grid-cols-1 items-center gap-8 rounded-2xl border border-transparent transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent lg:grid-cols-2 lg:gap-16"
     >
       <div className={visualRight ? "lg:order-2" : ""}>
         <ProjectMockup
@@ -54,13 +54,11 @@ export function FlagshipShowcase({
         <div className="mt-6">
           <TechTags technologies={project.technologies} />
         </div>
-        <span className="mt-8 inline-flex items-center gap-4 text-sm font-medium text-accent">
-          <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-bright">
-            Read the case study
-          </span>
+        <span className="mt-8 inline-flex h-11 w-fit items-center gap-3 rounded-full border border-line-strong px-6 text-sm font-medium text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
+          Read the case study
           <span
             aria-hidden="true"
-            className="transition-transform duration-300 group-hover:translate-x-1"
+            className="text-accent transition-transform duration-300 group-hover:translate-x-1"
           >
             →
           </span>

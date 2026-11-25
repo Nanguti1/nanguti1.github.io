@@ -47,11 +47,11 @@ export function ProjectIndexRow({ project, index }: ProjectIndexRowProps) {
         <div className="mt-4">
           <TechTags technologies={project.technologies} />
         </div>
-        <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent">
+        <span className="mt-4 inline-flex h-10 w-fit items-center gap-3 rounded-full border border-line-strong px-5 text-sm font-medium text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
           Read case study
           <span
             aria-hidden="true"
-            className="transition-transform duration-300 group-hover:translate-x-1"
+            className="text-accent transition-transform duration-300 group-hover:translate-x-1"
           >
             →
           </span>
