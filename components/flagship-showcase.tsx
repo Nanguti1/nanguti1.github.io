@@ -30,7 +30,7 @@ export function FlagshipShowcase({
       </div>
       <div className={visualRight ? "lg:order-1" : ""}>
         <div className="mb-5 flex items-baseline gap-4">
-          <span className="font-mono text-sm text-accent">{index}</span>
+          <span className="font-mono text-sm text-muted">{index}</span>
           <span className="font-mono text-xs uppercase tracking-widest text-subtle">
             {project.category}
           </span>
@@ -55,9 +55,9 @@ export function FlagshipShowcase({
         </div>
         <Link
           href={`/projects/${project.slug}`}
-          className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent transition-colors hover:text-accent-2"
+          className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent transition-colors hover:text-accent-bright"
         >
-          <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-2">
+          <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-bright">
             Read the case study
           </span>
           <span

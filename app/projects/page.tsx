@@ -33,7 +33,7 @@ export default function ProjectsPage() {
             <article className="grid items-center gap-8 rounded-2xl border border-line bg-card p-6 sm:p-10 lg:grid-cols-[1fr_380px]">
               <div>
                 <div className="mb-4 flex items-baseline gap-4">
-                  <span className="font-mono text-sm text-accent">
+                  <span className="font-mono text-sm text-muted">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="font-mono text-xs uppercase tracking-widest text-subtle">
@@ -59,9 +59,9 @@ export default function ProjectsPage() {
                 </div>
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent transition-colors hover:text-accent-2"
+                  className="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent transition-colors hover:text-accent-bright"
                 >
-                  <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-2">
+                  <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-bright">
                     Read the case study
                   </span>
                   <span

@@ -7,11 +7,12 @@
   --color-elevated: #1b2638;
   --color-foreground: #f5f7fc;
   --color-muted: #a7b1c2;
-  --color-subtle: #768399;
-  --color-line: rgb(255 255 255 / 0.08);
-  --color-line-strong: rgb(255 255 255 / 0.14);
+  --color-line: rgb(255 255 255 / 0.12);
+  --color-line-strong: rgb(255 255 255 / 0.22);
   --color-accent: #8798ff;
+  --color-accent-bright: #aab6ff;
   --color-accent-2: #66d8c5;
+  --color-subtle: #8a94a6;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -108,6 +109,10 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .motion-dot {
+    display: none;
   }
 
   .reveal {

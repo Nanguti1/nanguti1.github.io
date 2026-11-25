@@ -30,7 +30,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="bg-grid absolute inset-0" aria-hidden="true" />
         <div
-          className="absolute -top-40 left-1/2 h-96 w-[42rem] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"
+          className="absolute -top-40 left-1/2 h-96 w-[42rem] -translate-x-1/2 rounded-full bg-white/[0.04] blur-3xl"
           aria-hidden="true"
         />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pb-24 pt-20 sm:pt-28 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:pb-32">
@@ -42,7 +42,7 @@ export default function Home() {
             <h1 className="text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
               Kevin
               <br />
-              Wanyonyi<span className="text-accent">.</span>
+              Wanyonyi.
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-muted">
               Full-stack software engineer building production business
@@ -53,7 +53,7 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="/projects"
-                className="group inline-flex h-12 items-center gap-3 rounded-full bg-accent px-7 text-sm font-medium text-background transition-all hover:bg-accent-2"
+                className="group inline-flex h-12 items-center gap-3 rounded-full bg-accent px-7 text-sm font-medium text-background transition-all hover:bg-accent-bright"
               >
                 Explore projects
                 <span
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* Flagship showcases */}
-      <section className="border-t border-line bg-surface/50">
+      <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal>
             <SectionHeading
@@ -149,9 +149,9 @@ export default function Home() {
           <p className="mt-10">
             <Link
               href="/projects"
-              className="group inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-2"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-bright"
             >
-              <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-2">
+              <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-bright">
                 View all six projects
               </span>
               <span aria-hidden="true">→</span>
@@ -161,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* Engineering approach */}
-      <section className="border-t border-line bg-surface/50">
+      <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal>
             <SectionHeading
@@ -195,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section className="border-t border-line bg-surface/50">
+      <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal>
             <SectionHeading
@@ -209,7 +209,7 @@ export default function Home() {
                 href="https://github.com/Nanguti1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 w-fit items-center rounded-full bg-accent px-7 text-sm font-medium text-background transition-colors hover:bg-accent-2"
+                className="inline-flex h-12 w-fit items-center rounded-full bg-accent px-7 text-sm font-medium text-background transition-colors hover:bg-accent-bright"
               >
                 GitHub — Nanguti1
               </a>

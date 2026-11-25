@@ -38,9 +38,9 @@ export function Approach() {
       <ol className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
         {principles.map((principle, i) => (
           <Reveal key={principle.title} delay={(i % 2) * 80}>
-            <li className="group relative border-l border-line-strong pl-6 transition-colors hover:border-accent/60">
-              <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-accent/50 bg-background transition-colors group-hover:bg-accent/30" aria-hidden="true" />
-              <span className="mb-2 block font-mono text-xs text-accent">
+            <li className="group relative border-l border-line-strong pl-6 transition-colors hover:border-line-strong">
+              <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-line-strong bg-background transition-colors group-hover:bg-elevated" aria-hidden="true" />
+              <span className="mb-2 block font-mono text-xs text-muted">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="text-lg font-semibold tracking-tight text-foreground">

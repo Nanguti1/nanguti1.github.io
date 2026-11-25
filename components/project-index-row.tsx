@@ -21,7 +21,7 @@ export function ProjectIndexRow({ project, index }: ProjectIndexRowProps) {
       </div>
 
       {/* Index */}
-      <span className="order-3 hidden font-mono text-sm text-accent sm:col-start-1 sm:row-start-1 sm:block">
+      <span className="order-3 hidden font-mono text-sm text-muted sm:col-start-1 sm:row-start-1 sm:block">
         {index}
       </span>
 

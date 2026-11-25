@@ -45,7 +45,7 @@ export default function AboutPage() {
               <li key={project.slug}>
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="text-accent transition-colors hover:text-accent-2"
+                  className="text-accent transition-colors hover:text-accent-bright"
                 >
                   {project.title}
                 </Link>{" "}

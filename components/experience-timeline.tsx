@@ -27,8 +27,8 @@ export function ExperienceTimeline() {
               className="absolute -left-[41px] top-1.5 flex h-3.5 w-3.5 items-center justify-center sm:-left-[61px]"
               aria-hidden="true"
             >
-              <span className="absolute h-3.5 w-3.5 rounded-full border border-accent/50 bg-background" />
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="absolute h-3.5 w-3.5 rounded-full border border-accent-2/50 bg-background" />
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-2" />
             </span>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
               <span className="font-mono text-xs uppercase tracking-widest text-accent-2">
@@ -52,7 +52,7 @@ export function ExperienceTimeline() {
             </div>
             <Link
               href={`/projects/${project.slug}`}
-              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-2"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-bright"
             >
               Read case study
               <span aria-hidden="true">→</span>
