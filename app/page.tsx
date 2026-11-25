@@ -44,9 +44,9 @@ export default function Home() {
           className="absolute -top-40 left-1/2 h-96 w-[42rem] -translate-x-1/2 rounded-full bg-white/[0.04] blur-3xl"
           aria-hidden="true"
         />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pb-24 pt-20 sm:pt-28 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:pb-32">
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pb-24 pt-24 sm:pt-24 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:pb-24">
           <div>
-            <p className="mb-6 inline-flex items-center gap-3 rounded-full border border-line bg-surface/80 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.08em] text-muted backdrop-blur">
+            <p className="mb-6 inline-flex items-center gap-4 rounded-full border border-line bg-surface/80 px-4 py-2 font-mono text-xs uppercase tracking-[0.08em] text-muted backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-2" aria-hidden="true" />
               Engineering Portfolio — Full-Stack
             </p>
@@ -55,16 +55,16 @@ export default function Home() {
               <br />
               Wanyonyi.
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-muted">
+            <p className="mt-8 max-w-xl text-lg leading-8 text-muted">
               Full-stack software engineer building production business
               systems — storefronts, insurance platforms, marketplaces, and
               operations tooling — from backend services to the interfaces
               people actually use.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-12 flex flex-wrap items-center gap-4">
               <Link
                 href="/projects"
-                className="group inline-flex h-12 items-center gap-3 rounded-full bg-accent px-7 text-sm font-medium text-background transition-all hover:bg-accent-bright"
+                className="group inline-flex h-12 items-center gap-4 rounded-full bg-accent px-8 text-sm font-medium text-background transition-all hover:bg-accent-bright"
               >
                 Explore projects
                 <span
@@ -76,18 +76,18 @@ export default function Home() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex h-12 items-center rounded-full border border-line-strong px-7 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+                className="inline-flex h-12 items-center rounded-full border border-line-strong px-8 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
               >
                 Contact
               </Link>
             </div>
-            <dl className="mt-14 flex max-w-lg flex-wrap gap-x-10 gap-y-6 border-t border-line pt-6">
+            <dl className="mt-16 flex max-w-lg flex-wrap gap-x-12 gap-y-6 border-t border-line pt-6">
               {heroStats.map((stat) => (
                 <div key={stat.label}>
                   <dt className="font-mono text-lg font-semibold text-foreground">
                     {stat.value}
                   </dt>
-                  <dd className="mt-1 font-mono text-xs uppercase tracking-[0.08em] text-subtle">
+                  <dd className="mt-2 font-mono text-xs uppercase tracking-[0.08em] text-subtle">
                     {stat.label}
                   </dd>
                 </div>
@@ -153,7 +153,7 @@ export default function Home() {
               ))}
             </div>
           </Reveal>
-          <p className="mt-10">
+          <p className="mt-12">
             <Link
               href="/projects"
               className="group inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-bright"
@@ -170,7 +170,7 @@ export default function Home() {
       {/* Engineering approach */}
       <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
             <Reveal>
               <div className="lg:sticky lg:top-24">
                 <SectionHeading
@@ -194,7 +194,7 @@ export default function Home() {
       {/* Earlier experience */}
       <section className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
             <Reveal>
               <div>
                 <SectionHeading

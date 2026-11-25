@@ -21,7 +21,7 @@ export function FlagshipShowcase({
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group grid grid-cols-1 items-center gap-10 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent lg:grid-cols-2 lg:gap-16"
+      className="group grid grid-cols-1 items-center gap-8 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent lg:grid-cols-2 lg:gap-16"
     >
       <div className={visualRight ? "lg:order-2" : ""}>
         <ProjectMockup
@@ -32,7 +32,7 @@ export function FlagshipShowcase({
         />
       </div>
       <div className={visualRight ? "lg:order-1" : ""}>
-        <div className="mb-5 flex items-baseline gap-4">
+        <div className="mb-6 flex items-baseline gap-4">
           <span className="font-mono text-sm text-muted">{index}</span>
           <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             {project.category}
@@ -42,10 +42,10 @@ export function FlagshipShowcase({
         <h3 className="text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
           {project.title}
         </h3>
-        <p className="mt-5 max-w-xl text-base leading-7 text-muted">
+        <p className="mt-6 max-w-xl text-base leading-7 text-muted">
           {project.summary}
         </p>
-        <p className="mt-3 text-sm text-subtle">
+        <p className="mt-4 text-sm text-subtle">
           Role: <span className="text-muted">{project.role}</span>
         </p>
         {project.statusLine ? (
@@ -54,7 +54,7 @@ export function FlagshipShowcase({
         <div className="mt-6">
           <TechTags technologies={project.technologies} />
         </div>
-        <span className="mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent">
+        <span className="mt-8 inline-flex items-center gap-4 text-sm font-medium text-accent">
           <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-bright">
             Read the case study
           </span>

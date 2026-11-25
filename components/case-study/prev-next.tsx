@@ -14,12 +14,12 @@ export function PrevNext({ slug }: PrevNextProps) {
   return (
     <nav
       aria-label="More case studies"
-      className="mt-20 flex flex-col gap-4 border-t border-line pt-10 sm:flex-row sm:justify-between"
+      className="mt-24 flex flex-col gap-4 border-t border-line pt-12 sm:flex-row sm:justify-between"
     >
       {prev ? (
         <Link
           href={`/projects/${prev.slug}`}
-          className="group flex flex-col gap-1"
+          className="group flex flex-col gap-2"
         >
           <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             ← Previous
@@ -34,7 +34,7 @@ export function PrevNext({ slug }: PrevNextProps) {
       {next ? (
         <Link
           href={`/projects/${next.slug}`}
-          className="group flex flex-col items-start gap-1 text-right sm:items-end"
+          className="group flex flex-col items-start gap-2 text-right sm:items-end"
         >
           <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             Next →

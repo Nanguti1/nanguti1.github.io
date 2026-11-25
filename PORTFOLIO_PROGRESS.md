@@ -391,3 +391,31 @@ URLs. Do NOT deploy without explicit approval.
 - project-row.tsx / image-placeholder.tsx now unused (kept).
 - Verified: lint clean, build clean (15 routes), pushed 2f83cc0.
 
+
+## Visual refinement phases 1-5 (post-redesign polish)
+
+- Phase 1: images.unoptimized fix (broken 2B banner root cause);
+  ProjectMockup browser-frame component everywhere; removed
+  placeholder/screenshot-pending text + numeral art; rebuilt
+  project rows as index|thumb|content|arrow grid.
+- Phase 2: stronger border tokens; hero diagram bigger nodes +
+  travelling dot (reduced-motion safe); accent audit (periwinkle
+  = actions/links, teal = status/metadata, new accent-bright);
+  alternating bg-surface bands.
+- Phase 3: clamp() section headings, 64/96px section padding,
+  >=12px mono labels <=0.08em tracking, 15px/1.6 descriptions,
+  AA-safe subtle token, two-col approach/experience layouts.
+- Phase 4: whole-card links with hover/focus states; TechTags
+  max 5 + '+N' with first-two highlight; approach = 6 numbered
+  cards + sticky intro; ContactMethods from lib/site-config.ts.
+- Phase 5: Project.statusLine optional card metadata (hidden when
+  unset); hero stats derived from registry + config TODOs.
+- Bugfix: mobile horizontal overflow from implicit auto grid
+  column in showcase Links -> grid-cols-1 base.
+- Verified via Playwright (Edge): no overflow/errors/broken
+  images at 1440/1024/390 on home, /projects, case studies.
+  Screenshots in shots/ (untracked).
+- TODO for Kevin: lib/site-config.ts email/linkedin/availability/
+  heroStats; projects.ts statusLine per project; real screenshots
+  via ProjectMockup src prop.
+

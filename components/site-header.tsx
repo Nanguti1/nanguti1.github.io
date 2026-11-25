@@ -101,7 +101,7 @@ export function SiteHeader() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     onClick={() => setOpen(false)}
-                    className={`block py-3 text-base transition-colors ${
+                    className={`block py-4 text-base transition-colors ${
                       active
                         ? "text-foreground"
                         : "text-muted hover:text-foreground"

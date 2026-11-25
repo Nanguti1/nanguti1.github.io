@@ -29,13 +29,13 @@ export function ProjectMockup({
       className={`overflow-hidden rounded-xl border border-line bg-card ${className}`}
     >
       {/* Browser chrome */}
-      <div className="flex items-center gap-3 border-b border-line bg-elevated px-4 py-2.5">
-        <div className="flex shrink-0 gap-1.5" aria-hidden="true">
+      <div className="flex items-center gap-4 border-b border-line bg-elevated px-4 py-2">
+        <div className="flex shrink-0 gap-2" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
         </div>
-        <div className="flex min-w-0 flex-1 items-center rounded-md border border-line bg-background px-3 py-1">
+        <div className="flex min-w-0 flex-1 items-center rounded-md border border-line bg-background px-4 py-2">
           <span className="truncate font-mono text-xs text-subtle">
             {host}
           </span>
@@ -64,7 +64,7 @@ function MockupBody({ title }: { title: string }) {
   return (
     <div className="absolute inset-0 flex" aria-hidden="true">
       {/* sidebar */}
-      <div className="hidden w-14 shrink-0 flex-col gap-2 border-r border-line bg-card/60 p-3 sm:flex">
+      <div className="hidden w-14 shrink-0 flex-col gap-2 border-r border-line bg-card/60 p-4 sm:flex">
         <span className="h-2 w-2/3 rounded-sm bg-line-strong" />
         <span className="h-2 w-full rounded-sm bg-line" />
         <span className="h-2 w-4/5 rounded-sm bg-line" />
@@ -72,18 +72,18 @@ function MockupBody({ title }: { title: string }) {
         <span className="h-2 w-full rounded-sm bg-line" />
       </div>
       {/* content area */}
-      <div className="flex min-w-0 flex-1 flex-col gap-3 p-4 sm:p-5">
-        <div className="flex items-center justify-between gap-3">
+      <div className="flex min-w-0 flex-1 flex-col gap-4 p-4 sm:p-6">
+        <div className="flex items-center justify-between gap-4">
           <span className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             {title}
           </span>
           <span className="h-2.5 w-16 rounded-sm bg-line" />
         </div>
-        <div className="grid flex-1 grid-cols-3 gap-3">
+        <div className="grid flex-1 grid-cols-3 gap-4">
           <span className="rounded-md border border-line bg-elevated/70" />
           <span className="col-span-2 rounded-md border border-line bg-elevated/40" />
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-4">
           <span className="h-2 flex-1 rounded-sm bg-line" />
           <span className="h-2 w-1/3 rounded-sm bg-line" />
         </div>

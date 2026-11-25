@@ -15,11 +15,11 @@ export function Glance({ items }: GlanceProps) {
       </h2>
       <dl className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (
-          <div key={item.label} className="bg-surface px-5 py-4">
+          <div key={item.label} className="bg-surface px-6 py-4">
             <dt className="text-xs font-medium uppercase tracking-wider text-subtle">
               {item.label}
             </dt>
-            <dd className="mt-1 text-sm leading-6 text-foreground">
+            <dd className="mt-2 text-sm leading-6 text-foreground">
               {item.value}
             </dd>
           </div>

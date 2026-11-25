@@ -14,7 +14,7 @@ export function TechTags({ technologies, max = MAX_TAGS }: TechTagsProps) {
       {visible.map((tech, i) => (
         <li
           key={tech}
-          className={`rounded-full border px-3 py-1 font-mono text-xs ${
+          className={`rounded-full border px-4 py-2 font-mono text-xs ${
             i < 2
               ? "border-line-strong bg-surface text-foreground"
               : "border-line bg-surface text-muted"
@@ -25,7 +25,7 @@ export function TechTags({ technologies, max = MAX_TAGS }: TechTagsProps) {
       ))}
       {remaining > 0 ? (
         <li
-          className="rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs text-muted"
+          className="rounded-full border border-line bg-surface px-4 py-2 font-mono text-xs text-muted"
           title={technologies.slice(max).join(", ")}
         >
           +{remaining}

@@ -32,7 +32,7 @@ export default function ProjectsPage() {
           <Reveal key={project.slug} delay={i * 100}>
             <Link
               href={`/projects/${project.slug}`}
-              className="group grid grid-cols-1 items-center gap-8 rounded-2xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:p-10 lg:grid-cols-[1fr_380px]"
+              className="group grid grid-cols-1 items-center gap-8 rounded-2xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:p-8 lg:grid-cols-[1fr_380px]"
             >
               <div>
                 <div className="mb-4 flex items-baseline gap-4">
@@ -49,7 +49,7 @@ export default function ProjectsPage() {
                 <p className="mt-4 max-w-xl text-base leading-7 text-muted">
                   {project.summary}
                 </p>
-                <p className="mt-3 text-sm text-subtle">
+                <p className="mt-4 text-sm text-subtle">
                   Role: <span className="text-muted">{project.role}</span>
                 </p>
                 {project.statusLine ? (
@@ -60,7 +60,7 @@ export default function ProjectsPage() {
                 <div className="mt-6">
                   <TechTags technologies={project.technologies} />
                 </div>
-                <span className="mt-8 inline-flex items-center gap-3 text-sm font-medium text-accent">
+                <span className="mt-8 inline-flex items-center gap-4 text-sm font-medium text-accent">
                   <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent-bright">
                     Read the case study
                   </span>
@@ -82,7 +82,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Supporting projects */}
-      <div className="mt-20">
+      <div className="mt-24">
         <Reveal>
           <h2 className="mb-2 font-mono text-xs uppercase tracking-[0.08em] text-subtle">
             Additional projects &amp; experience

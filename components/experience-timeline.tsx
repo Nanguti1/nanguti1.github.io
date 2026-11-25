@@ -17,7 +17,7 @@ const entries = [
 
 export function ExperienceTimeline() {
   return (
-    <ol className="relative ml-3 border-l border-line-strong pl-8 sm:ml-6 sm:pl-12">
+    <ol className="relative ml-4 border-l border-line-strong pl-8 sm:ml-6 sm:pl-12">
       {entries.map((entry) => {
         const project = getProject(entry.slug);
         if (!project) return null;
@@ -30,7 +30,7 @@ export function ExperienceTimeline() {
               <span className="absolute h-3.5 w-3.5 rounded-full border border-accent-2/50 bg-background" />
               <span className="h-1.5 w-1.5 rounded-full bg-accent-2" />
             </span>
-            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
               <span className="font-mono text-xs uppercase tracking-[0.08em] text-accent-2">
                 {entry.period}
               </span>

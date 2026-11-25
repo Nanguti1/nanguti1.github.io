@@ -78,7 +78,7 @@ export function HeroVisual() {
           }}
           aria-hidden="true"
         >
-          <span className="block rounded-md border border-line-strong bg-elevated/95 px-3 py-1.5 font-mono text-sm font-medium tracking-wide text-foreground backdrop-blur">
+          <span className="block rounded-md border border-line-strong bg-elevated/95 px-4 py-2 font-mono text-sm font-medium tracking-wide text-foreground backdrop-blur">
             {n.label}
           </span>
         </div>

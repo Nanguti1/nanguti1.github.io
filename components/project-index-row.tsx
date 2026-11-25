@@ -13,7 +13,7 @@ export function ProjectIndexRow({ project, index }: ProjectIndexRowProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-6 gap-y-5 border-t border-line py-8 transition-colors first:border-t-0 hover:border-accent/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:grid-cols-[48px_220px_minmax(0,1fr)_24px]"
+      className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-6 gap-y-6 border-t border-line py-8 transition-colors first:border-t-0 hover:border-accent/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:grid-cols-[48px_220px_minmax(0,1fr)_24px]"
     >
       {/* Thumbnail — above content on mobile, fixed column on desktop */}
       <div className="col-span-2 max-w-sm sm:col-span-1 sm:col-start-2 sm:max-w-none sm:row-start-1">
@@ -30,7 +30,7 @@ export function ProjectIndexRow({ project, index }: ProjectIndexRowProps) {
 
       {/* Content */}
       <div className="order-4 col-span-2 min-w-0 sm:col-span-1 sm:col-start-3 sm:row-start-1">
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
           <h3 className="text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-2xl">
             {project.title}
           </h3>

@@ -20,7 +20,7 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
     <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-16 sm:py-24">
       {/* Hero */}
       <header className="mb-12">
-        <div className="relative mb-10 overflow-hidden rounded-2xl">
+        <div className="relative mb-12 overflow-hidden rounded-2xl">
           <ProjectMockup
             title={project.title}
             domain={`${project.slug}.app`}
@@ -36,7 +36,7 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
             {project.title}
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted">{project.summary}</p>
-          <div className="mt-6 flex flex-col gap-3">
+          <div className="mt-6 flex flex-col gap-4">
             <p className="text-sm text-subtle">
               Role:{" "}
               <span className="text-muted">{project.role}</span>
@@ -47,7 +47,7 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
       </header>
 
       {/* Intro */}
-      <div className="mb-16 max-w-3xl space-y-5">
+      <div className="mb-16 max-w-3xl space-y-6">
         {caseStudy.intro.map((block, i) =>
           block.type === "paragraph" ? (
             <p key={i} className="text-base leading-8 text-muted">
@@ -70,11 +70,11 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
           <section key={section.id} aria-labelledby={section.id}>
             <h2
               id={section.id}
-              className="mb-5 scroll-mt-24 text-2xl font-semibold tracking-tight text-foreground"
+              className="mb-6 scroll-mt-24 text-2xl font-semibold tracking-tight text-foreground"
             >
               {section.title}
             </h2>
-            <div className="space-y-5">
+            <div className="space-y-6">
               {section.blocks.map((block, i) =>
                 block.type === "paragraph" ? (
                   <p key={i} className="text-base leading-8 text-muted">
@@ -85,11 +85,11 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
                     {block.items.map((item) => (
                       <li
                         key={item}
-                        className="flex gap-3 text-base leading-7 text-muted"
+                        className="flex gap-4 text-base leading-7 text-muted"
                       >
                         <span
                           aria-hidden="true"
-                          className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-subtle"
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-subtle"
                         />
                         {item}
                       </li>

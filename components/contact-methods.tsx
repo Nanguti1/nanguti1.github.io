@@ -2,7 +2,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
 const buttonBase =
-  "inline-flex h-12 w-fit items-center rounded-full border border-line-strong px-7 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent";
+  "inline-flex h-12 w-fit items-center rounded-full border border-line-strong px-8 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent";
 
 export function ContactMethods() {
   const { email, linkedin, github, availability } = siteConfig.contact;
@@ -13,7 +13,7 @@ export function ContactMethods() {
           href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-12 items-center rounded-full bg-accent px-7 text-sm font-medium text-background transition-colors hover:bg-accent-bright"
+          className="inline-flex h-12 items-center rounded-full bg-accent px-8 text-sm font-medium text-background transition-colors hover:bg-accent-bright"
         >
           GitHub — Nanguti1
         </a>

@@ -17,9 +17,9 @@ export default function AboutPage() {
         description="Full-stack software engineer focused on practical web applications and business systems."
       />
 
-      <div className="space-y-10 text-base leading-8 text-muted">
+      <div className="space-y-12 text-base leading-8 text-muted">
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-foreground">
+          <h2 className="mb-4 text-xl font-semibold text-foreground">
             Background
           </h2>
           <p>
@@ -33,7 +33,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-foreground">
+          <h2 className="mb-4 text-xl font-semibold text-foreground">
             Selected work
           </h2>
           <p className="mb-4">
@@ -56,7 +56,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-foreground">
+          <h2 className="mb-4 text-xl font-semibold text-foreground">
             Experience
           </h2>
           <p>
