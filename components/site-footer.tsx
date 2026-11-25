@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteConfig } from "@/lib/site-config";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -36,7 +37,7 @@ export function SiteFooter() {
             </li>
             <li>
               <a
-                href="https://github.com/Nanguti1"
+                href={siteConfig.contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted transition-colors hover:text-foreground"

@@ -63,7 +63,8 @@ function Highlight({ children }: { children: React.ReactNode }) {
 
 export default function AboutPage() {
   const { portrait, quickFacts } = siteConfig.about;
-  const { email, linkedin, github, availability } = siteConfig.contact;
+  const { email, phone, linkedin, github, website, availability } =
+    siteConfig.contact;
   const visibleFacts = quickFacts.filter((f) => f.value);
   const flagship = flagshipSlugs
     .map(getProject)
@@ -145,6 +146,14 @@ export default function AboutPage() {
                       {email}
                     </a>
                   ) : null}
+                  {phone ? (
+                    <a
+                      href={phone.href}
+                      className="text-center text-sm text-accent transition-colors hover:text-accent-bright"
+                    >
+                      {phone.display}
+                    </a>
+                  ) : null}
                   {linkedin ? (
                     <a
                       href={linkedin}
@@ -153,6 +162,16 @@ export default function AboutPage() {
                       className="text-center text-sm text-accent transition-colors hover:text-accent-bright"
                     >
                       LinkedIn
+                    </a>
+                  ) : null}
+                  {website ? (
+                    <a
+                      href={website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-center text-sm text-accent transition-colors hover:text-accent-bright"
+                    >
+                      Personal website
                     </a>
                   ) : null}
                 </div>
