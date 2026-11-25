@@ -21,7 +21,7 @@ export function FlagshipShowcase({
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group grid items-center gap-10 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent lg:grid-cols-2 lg:gap-16"
+      className="group grid grid-cols-1 items-center gap-10 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent lg:grid-cols-2 lg:gap-16"
     >
       <div className={visualRight ? "lg:order-2" : ""}>
         <ProjectMockup

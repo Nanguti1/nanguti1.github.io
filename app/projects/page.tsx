@@ -32,7 +32,7 @@ export default function ProjectsPage() {
           <Reveal key={project.slug} delay={i * 100}>
             <Link
               href={`/projects/${project.slug}`}
-              className="group grid items-center gap-8 rounded-2xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:p-10 lg:grid-cols-[1fr_380px]"
+              className="group grid grid-cols-1 items-center gap-8 rounded-2xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:p-10 lg:grid-cols-[1fr_380px]"
             >
               <div>
                 <div className="mb-4 flex items-baseline gap-4">
