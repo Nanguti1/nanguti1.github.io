@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 import { ProjectIndexRow } from "@/components/project-index-row";
 import { TechTags } from "@/components/tech-tags";
-import { ProjectCover } from "@/components/project-cover";
+import { ProjectMockup } from "@/components/project-mockup";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -72,12 +72,7 @@ export default function ProjectsPage() {
                   </span>
                 </Link>
               </div>
-              <ProjectCover
-                index={String(i + 1).padStart(2, "0")}
-                label={project.title}
-                caption="case-study visual — screenshot pending"
-                className="aspect-[4/3] w-full rounded-xl"
-              />
+              <ProjectMockup title={project.title} className="w-full" />
             </article>
           </Reveal>
         ))}
@@ -97,7 +92,6 @@ export default function ProjectsPage() {
                 key={project.slug}
                 project={project}
                 index={`0${i + 3}`}
-                coverLabel={project.title}
               />
             ))}
           </div>

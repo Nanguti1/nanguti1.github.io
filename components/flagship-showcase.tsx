@@ -1,15 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Project } from "@/lib/projects";
 import { TechTags } from "@/components/tech-tags";
-import { ProjectCover } from "@/components/project-cover";
+import { ProjectMockup } from "@/components/project-mockup";
 
 interface FlagshipShowcaseProps {
   project: Project;
   index: string;
   visualRight?: boolean;
-  coverLabel: string;
-  accent?: "accent" | "accent-2";
   imageSrc?: string;
   imageAlt?: string;
 }
@@ -18,40 +15,19 @@ export function FlagshipShowcase({
   project,
   index,
   visualRight = false,
-  coverLabel,
-  accent = "accent",
   imageSrc,
   imageAlt,
 }: FlagshipShowcaseProps) {
-  const visual = imageSrc ? (
-    <div className="group relative overflow-hidden rounded-2xl border border-line bg-card">
-      <Image
-        src={imageSrc}
-        alt={imageAlt ?? `${project.title} — project imagery`}
-        width={960}
-        height={640}
-        className="aspect-[3/2] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-      <span className="absolute bottom-4 left-4 rounded-md border border-line bg-background/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-muted backdrop-blur">
-        {coverLabel}
-      </span>
-    </div>
-  ) : (
-    <ProjectCover
-      index={index}
-      label={coverLabel}
-      accent={accent}
-      caption="visual placeholder — screenshot pending"
-      className="aspect-[3/2] w-full rounded-2xl"
-    />
-  );
-
   return (
-    <article
-      className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
-    >
-      <div className={visualRight ? "lg:order-2" : ""}>{visual}</div>
+    <article className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div className={visualRight ? "lg:order-2" : ""}>
+        <ProjectMockup
+          title={project.title}
+          src={imageSrc}
+          imageAlt={imageAlt}
+          className="transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+        />
+      </div>
       <div className={visualRight ? "lg:order-1" : ""}>
         <div className="mb-5 flex items-baseline gap-4">
           <span className="font-mono text-sm text-accent">{index}</span>

@@ -5,7 +5,7 @@ import { Glance } from "@/components/case-study/glance";
 import { TableOfContents } from "@/components/case-study/table-of-contents";
 import { PrevNext } from "@/components/case-study/prev-next";
 import { TechTags } from "@/components/tech-tags";
-import { ProjectCover } from "@/components/project-cover";
+import { ProjectMockup } from "@/components/project-mockup";
 
 interface CaseStudyLayoutProps {
   project: Project;
@@ -21,12 +21,10 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
       {/* Hero */}
       <header className="mb-12">
         <div className="relative mb-10 overflow-hidden rounded-2xl">
-          <ProjectCover
-            index={index}
-            label={project.title}
-            caption={`${project.category} — case study`}
-            accent={Number(index) % 2 === 0 ? "accent-2" : "accent"}
-            className="aspect-[21/9] w-full rounded-2xl"
+          <ProjectMockup
+            title={project.title}
+            domain={`${project.slug}.app`}
+            className="w-full"
           />
           <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-background via-background/20 to-transparent" />
         </div>

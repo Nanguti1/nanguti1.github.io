@@ -109,7 +109,6 @@ export default function Home() {
                   project={twoB}
                   index="01"
                   visualRight
-                  coverLabel="2B Gamers Store"
                   imageSrc="/images/projects/2b-gamers-store-banner.webp"
                   imageAlt="2B Gamers Store storefront banner"
                 />
@@ -120,8 +119,6 @@ export default function Home() {
                 <FlagshipShowcase
                   project={hamaline}
                   index="02"
-                  coverLabel="Hamaline Insurance"
-                  accent="accent-2"
                 />
               </Reveal>
             ) : null}
@@ -145,7 +142,6 @@ export default function Home() {
                   key={project.slug}
                   project={project}
                   index={`0${i + 3}`}
-                  coverLabel={project.title}
                 />
               ))}
             </div>

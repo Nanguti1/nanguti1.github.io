@@ -1,24 +1,32 @@
 import Link from "next/link";
 import type { Project } from "@/lib/projects";
 import { TechTags } from "@/components/tech-tags";
-import { ProjectCover } from "@/components/project-cover";
+import { ProjectMockup } from "@/components/project-mockup";
 
 interface ProjectIndexRowProps {
   project: Project;
   index: string;
-  coverLabel: string;
 }
 
-/** Numbered editorial row for supporting projects. */
-export function ProjectIndexRow({
-  project,
-  index,
-  coverLabel,
-}: ProjectIndexRowProps) {
+/** Numbered editorial row: index | thumbnail | content | arrow. */
+export function ProjectIndexRow({ project, index }: ProjectIndexRowProps) {
   return (
-    <article className="group grid gap-6 border-t border-line py-8 first:border-t-0 sm:grid-cols-[64px_1fr_auto] sm:items-center sm:gap-10">
-      <span className="font-mono text-sm text-accent">{index}</span>
-      <div>
+    <article className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-6 gap-y-5 border-t border-line py-8 first:border-t-0 sm:grid-cols-[48px_220px_minmax(0,1fr)_24px]">
+      {/* Thumbnail — above content on mobile, fixed column on desktop */}
+      <div className="col-span-2 max-w-sm sm:col-span-1 sm:col-start-2 sm:max-w-none sm:row-start-1">
+        <ProjectMockup
+          title={project.title}
+          className="transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+        />
+      </div>
+
+      {/* Index */}
+      <span className="order-3 hidden font-mono text-sm text-accent sm:col-start-1 sm:row-start-1 sm:block">
+        {index}
+      </span>
+
+      {/* Content */}
+      <div className="order-4 col-span-2 min-w-0 sm:col-span-1 sm:col-start-3 sm:row-start-1">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h3 className="text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-2xl">
             <Link href={`/projects/${project.slug}`}>{project.title}</Link>
@@ -34,17 +42,12 @@ export function ProjectIndexRow({
           <TechTags technologies={project.technologies} />
         </div>
       </div>
-      <div className="hidden w-44 shrink-0 sm:block">
-        <ProjectCover
-          index={index}
-          label={coverLabel}
-          className="aspect-[4/3] rounded-lg transition-transform duration-500 group-hover:scale-[1.02]"
-        />
-      </div>
+
+      {/* Arrow */}
       <Link
         href={`/projects/${project.slug}`}
         aria-label={`Read case study: ${project.title}`}
-        className="hidden text-2xl text-subtle transition-all duration-300 hover:translate-x-1 hover:text-accent sm:col-start-3 sm:row-start-1 sm:block"
+        className="order-5 hidden text-2xl text-subtle transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent sm:col-start-4 sm:row-start-1 sm:block"
       >
         →
       </Link>

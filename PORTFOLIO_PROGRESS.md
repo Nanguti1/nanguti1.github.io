@@ -365,3 +365,29 @@ URLs. Do NOT deploy without explicit approval.
   2B case study shows stock_movements + iankumu/mpesa detail.
 - STATUS: DEPLOYED AND VERIFIED.
 
+
+## Visual redesign (post-launch refinement)
+
+- New palette per design brief: bg #090B11, surface #0F1420, card
+  #151D2B, elevated #1B2638; accents #8798FF / #66D8C5.
+- Hero: oversized editorial name, mono eyebrow chip, stat strip,
+  abstract SVG system-composition visual (HeroVisual) with floating
+  module labels and animated dashes.
+- FlagshipShowcase: alternating 2-col editorial layouts; 2B uses the
+  real storefront banner (public/images/projects/*.webp copied from
+  project repo); Hamaline + others use ProjectCover schematic
+  placeholders (honest 'screenshot pending' captions).
+- ProjectIndexRow: numbered editorial rows (03-06) with mini covers.
+- Approach: 6 numbered principles, 2-col with marker dots.
+- ExperienceTimeline: MwalimuPLUS (2018-2022) + AfriQ entries with
+  team-framing notes preserved.
+- CaseStudyLayout: 21:9 cover band + 'NN — category' identifier.
+- SiteHeader: mono uppercase nav with animated underline.
+- Reveal: IntersectionObserver scroll-reveal, respects
+  prefers-reduced-motion.
+- live-site-v1.pdf: could not be rendered for visual review (no PDF
+  tooling); audit based on code + prompt. PDF left untracked in
+  public/ - consider removing or gitignoring.
+- project-row.tsx / image-placeholder.tsx now unused (kept).
+- Verified: lint clean, build clean (15 routes), pushed 2f83cc0.
+
