@@ -79,7 +79,7 @@ export default function ContactPage() {
       <section className="border-b border-line">
         <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 sm:py-24 lg:grid-cols-[3fr_2fr] lg:gap-16">
           <Reveal>
-            <div className="grid gap-6 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {email ? (
                 <ContactMethodCard
                   label="Email"
@@ -175,7 +175,7 @@ export default function ContactPage() {
               The kind of work documented across this portfolio.
             </p>
           </Reveal>
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             {fitAreas.map((area, i) => (
               <Reveal key={area.title} delay={i * 100}>
                 <div className="h-full rounded-xl border border-line bg-surface p-6">

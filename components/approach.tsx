@@ -27,7 +27,7 @@ const principles = [
 
 export function Approach() {
   return (
-    <ol className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+    <ol className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
       {principles.map((principle, i) => (
         <li
           key={principle.title}
