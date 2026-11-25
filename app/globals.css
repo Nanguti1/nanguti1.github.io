@@ -15,6 +15,8 @@
   --color-subtle: #8a94a6;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.6;
 }
 
 body {

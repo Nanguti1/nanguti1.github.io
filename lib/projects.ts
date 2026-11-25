@@ -33,6 +33,8 @@ export const projects: Project[] = [
     featured: true,
     technologies: ["Laravel", "PHP", "Inertia", "React", "TypeScript", "Tailwind CSS", "MySQL", "M-PESA"],
     published: true,
+    // TODO: statusLine — e.g. "Live at <url> — <metric>". Hidden while null.
+    statusLine: null,
   },
   {
     slug: "hamaline-insurance",
@@ -44,6 +46,8 @@ export const projects: Project[] = [
     featured: true,
     technologies: ["Laravel", "PHP", "Inertia", "React", "TypeScript", "MySQL", "Spatie Permissions", "DomPDF"],
     published: true,
+    // TODO: statusLine — e.g. "Live at <url> — <metric>". Hidden while null.
+    statusLine: null,
   },
   {
     slug: "simplifi-networks",
@@ -55,6 +59,8 @@ export const projects: Project[] = [
     featured: false,
     technologies: ["Laravel", "Laravel Nova", "Next.js", "MySQL", "Tailwind CSS"],
     published: true,
+    // TODO: statusLine — e.g. "Live at <url> — <metric>". Hidden while null.
+    statusLine: null,
   },
   {
     slug: "blvd-guide",
@@ -66,6 +72,8 @@ export const projects: Project[] = [
     featured: false,
     technologies: ["Laravel", "React", "TypeScript", "Inertia", "Tailwind CSS", "Leaflet"],
     published: true,
+    // TODO: statusLine — e.g. "Live at <url> — <metric>". Hidden while null.
+    statusLine: null,
   },
   {
     slug: "mwalimuplus",
@@ -77,6 +85,8 @@ export const projects: Project[] = [
     featured: false,
     technologies: ["PHP", "Yii2", "JavaScript", "Bootstrap", "MySQL", "M-PESA"],
     published: true,
+    // TODO: statusLine — e.g. "Live at <url> — <metric>". Hidden while null.
+    statusLine: null,
   },
   {
     slug: "afriq-networks",
@@ -88,6 +98,8 @@ export const projects: Project[] = [
     featured: false,
     technologies: ["PHP", "Laravel", "React", "MySQL", "Node.js"],
     published: true,
+    // TODO: statusLine — e.g. "Live at <url> — <metric>". Hidden while null.
+    statusLine: null,
   },
 ];
 

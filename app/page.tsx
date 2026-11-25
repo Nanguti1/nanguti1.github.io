@@ -177,7 +177,7 @@ export default function Home() {
                   title="Engineering approach"
                   description="How the work on this portfolio is built and documented."
                 />
-                <p className="max-w-xs text-[15px] leading-6 text-muted">
+                <p className="max-w-xs text-body text-muted">
                   The work on this portfolio is built the way the systems it
                   documents are built — around real workflows, explicit
                   boundaries, and engineering decisions that can be defended.

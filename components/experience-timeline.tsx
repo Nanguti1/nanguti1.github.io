@@ -43,7 +43,7 @@ export function ExperienceTimeline() {
                 </Link>
               </h3>
             </div>
-            <p className="mt-2 max-w-2xl text-[15px] leading-6 text-muted">
+            <p className="mt-2 max-w-2xl text-body text-muted">
               {project.summary}
             </p>
             <p className="mt-2 text-sm text-subtle">{entry.note}</p>

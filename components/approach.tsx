@@ -39,7 +39,7 @@ export function Approach() {
           <h3 className="text-lg font-semibold tracking-tight text-foreground">
             {principle.title}
           </h3>
-          <p className="mt-4 text-[15px] leading-6 text-muted">{principle.body}</p>
+          <p className="mt-4 text-body text-muted">{principle.body}</p>
         </li>
       ))}
     </ol>

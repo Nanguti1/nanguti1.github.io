@@ -14,7 +14,7 @@ export function SectionHeading({ title, description, id }: SectionHeadingProps) 
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 text-[15px] leading-6 text-muted">{description}</p>
+        <p className="mt-4 text-body text-muted">{description}</p>
       ) : null}
     </div>
   );
