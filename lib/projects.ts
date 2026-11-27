@@ -22,12 +22,34 @@ export interface Project {
   statusLine?: string | null;
   /** Optional banner image shown in place of the schematic mockup. */
   banner?: string;
+  /** Public URL of the live product, if one exists. */
+  liveUrl?: string;
+  /** Public repository URL, if one exists. */
+  repoUrl?: string;
+  /**
+   * Optional hero gallery for the case-study page.
+   * Falls back to `banner` (labelled "Overview") when unset.
+   */
+  gallery?: {
+    src: string;
+    alt: string;
+    caption?: string;
+    label?: string;
+  }[];
 }
 
 export const projects: Project[] = [
   {
     slug: "2b-gamers-store",
     banner: "/images/projects/2b-gamers-store-banner.webp",
+    liveUrl: "https://2bgamersstore.co.ke/",
+    gallery: [
+      {
+        src: "/images/projects/2b-gamers-store-banner.webp",
+        alt: "2B Gamers Store storefront banner",
+        label: "Storefront",
+      },
+    ],
     title: "2B Gamers Store",
     summary:
       "Production Kenyan gaming retail and service platform covering storefront, customer accounts, M-PESA payments, inventory, procurement, repairs, and point of sale.",
