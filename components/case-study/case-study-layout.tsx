@@ -184,7 +184,7 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
       </div>
 
       {/* Sticky TOC + sections */}
-      <div className="grid gap-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-16">
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-16">
         <CaseStudyNav sections={caseStudy.sections} />
         <div className="min-w-0 max-w-[68ch]">
           <div className="flex flex-col">
