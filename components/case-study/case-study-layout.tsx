@@ -31,9 +31,11 @@ const buttonSecondary =
 function Section({
   section,
   index,
+  diagrams,
 }: {
   section: CaseStudySection;
   index: number;
+  diagrams?: CaseStudy["diagrams"];
 }) {
   return (
     <section
@@ -58,7 +60,7 @@ function Section({
       </h2>
       <div className="space-y-8">
         {section.blocks.map((block, i) => (
-          <ContentBlockView key={i} block={block} />
+          <ContentBlockView key={i} block={block} diagrams={diagrams} />
         ))}
       </div>
     </section>
@@ -187,7 +189,7 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
         <div className="min-w-0 max-w-[68ch]">
           <div className="flex flex-col">
             {caseStudy.sections.map((section, i) => (
-              <Section key={section.id} section={section} index={i} />
+              <Section key={section.id} section={section} index={i} diagrams={caseStudy.diagrams} />
             ))}
           </div>
         </div>

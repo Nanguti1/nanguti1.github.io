@@ -28,6 +28,160 @@ export const caseStudy: CaseStudy = {
     { label: "Payments", value: "M-PESA STK Push + C2B via iankumu/mpesa" },
     { label: "Auth", value: "Laravel Fortify, Spatie permissions, 2FA" },
   ],
+  diagrams: {
+    channels: {
+      type: "flow",
+      caption: "One system, three channels — every stock change flows through one service into one ledger",
+      nodes: [
+        {
+          title: "Sales channels",
+          items: [
+            "Online storefront",
+            "In-store POS",
+            "Repair operation",
+            "Procurement",
+          ],
+        },
+        {
+          title: "`InventoryService`",
+          note: "single owner of stock mutations",
+        },
+        {
+          title: "`stock_movements`",
+          note: "append-only ledger",
+        },
+      ],
+    },
+    "stk-sequence": {
+      type: "sequence",
+      caption: "M-PESA STK Push lifecycle",
+      lanes: ["Customer phone", "Storefront", "Laravel app", "Safaricom"],
+      messages: [
+        {
+          lane: "Laravel app",
+          note: "Order created — `payment_status` Pending; `MpesaSTK` stores `merchant_request_id` and `checkout_request_id`",
+        },
+        { from: "Storefront", to: "Customer phone", label: "STK push prompt" },
+        { lane: "Customer phone", note: "Customer completes the prompt" },
+        { from: "Safaricom", to: "Laravel app", label: "`POST /api/v1/confirm`" },
+        {
+          lane: "Laravel app",
+          note: "Handler parses the result and matches the payment to the order — stored order reference first, fallback phone number plus pending M-PESA orders — then marks it paid with the M-PESA receipt number",
+        },
+        {
+          from: "Storefront",
+          to: "Laravel app",
+          label: "Polls payment-status endpoint",
+        },
+        {
+          from: "Laravel app",
+          to: "Storefront",
+          label: "State, receipt number, paid timestamp",
+        },
+        {
+          lane: "Laravel app",
+          note: "On failure the payment is marked failed; the customer can retry, which creates a fresh STK record",
+        },
+      ],
+    },
+    "c2b-flow": {
+      type: "flow",
+      caption: "C2B confirmations",
+      nodes: [
+        {
+          title: "Laravel app",
+          items: ["Registers validation and confirmation URLs with Safaricom"],
+        },
+        { title: "Safaricom", items: ["Sends C2B confirmation"] },
+        {
+          title: "`MpesaC2B` record",
+          note: "audit log of all mobile-money traffic",
+        },
+        {
+          title: "Order match",
+          items: [
+            "Account number (bill reference) matched back to an order where one exists",
+          ],
+        },
+      ],
+    },
+    "stock-movement": {
+      type: "entrycard",
+      caption: "Anatomy of a stock movement",
+      fields: [
+        "Product or variant",
+        "Movement type",
+        "Quantity",
+        "Before and after quantities",
+        "Optional polymorphic reference — purchase, sale, order, repair, adjustment",
+        "User who made the change",
+        "Remarks",
+      ],
+      methods: [
+        "increaseStock",
+        "decreaseStock",
+        "adjustStock",
+        "reverseMovement",
+      ],
+      note: "`decreaseStock` refuses to take a product below zero, and `reverseMovement` writes an offsetting entry rather than editing history.",
+    },
+    "purchase-flow": {
+      type: "stateflow",
+      caption: "Purchase lifecycle",
+      groups: [
+        {
+          label: "Purchase",
+          states: ["draft", "approved", "received"],
+          notes: { approved: "stock enters the ledger" },
+        },
+      ],
+    },
+    "repair-flow": {
+      type: "stateflow",
+      caption: "Repair lifecycle",
+      groups: [
+        {
+          label: "Repair job",
+          states: ["pending", "in-progress", "awaiting-parts", "completed"],
+          detached: ["cancelled"],
+        },
+      ],
+    },
+    "adjustment-flow": {
+      type: "stateflow",
+      caption: "Stock adjustment lifecycle",
+      groups: [
+        { label: "Stock adjustment", states: ["draft", "approved"] },
+      ],
+    },
+    "events-listeners": {
+      type: "events",
+      caption: "Domain events and queued reactions",
+      events: [
+        "PurchaseApproved",
+        "SaleCompleted",
+        "RepairCompleted",
+        "StockAdjusted",
+        "StockMovementCreated",
+      ],
+      reactions: [
+        "Low-stock checks notify admins",
+        "Cached stock re-syncs",
+        "Purchase notifications",
+        "Order confirmation email queued at checkout",
+      ],
+      links: [
+        {
+          event: "PurchaseApproved",
+          reactions: ["Purchase notifications", "Low-stock checks notify admins"],
+        },
+        {
+          event: "StockMovementCreated",
+          reactions: ["Cached stock re-syncs"],
+        },
+      ],
+    },
+  },
   sections: [
     {
       id: "context-and-problem",
@@ -41,6 +195,7 @@ export const caseStudy: CaseStudy = {
           type: "paragraph",
           text: "The rebuild put the storefront and the entire back office on one Laravel application, so online orders, POS sales, and repair parts all draw down the same inventory records.",
         },
+        { type: "diagram", id: "channels" },
       ],
     },
     {
@@ -82,10 +237,12 @@ export const caseStudy: CaseStudy = {
             "Failed results mark the payment failed, and the customer can retry the prompt, which creates a fresh STK record.",
           ],
         },
+        { type: "diagram", id: "stk-sequence" },
         {
           type: "paragraph",
           text: "The C2B flow registers validation and confirmation URLs with Safaricom. Confirmations create an `MpesaC2B` record for every transaction — an audit log of all mobile-money traffic — and match the account number (bill reference) back to an order where one exists.",
         },
+        { type: "diagram", id: "c2b-flow" },
         {
           type: "callout",
           text: "Order updates are guarded by `payment_status` checks so repeat callbacks do not double-apply.",
@@ -112,6 +269,7 @@ export const caseStudy: CaseStudy = {
           type: "paragraph",
           text: "A central `InventoryService` owns the mutations: `increaseStock`, `decreaseStock`, `adjustStock`, and `reverseMovement`. `decreaseStock` refuses to take a product below zero, and `reverseMovement` writes an offsetting entry rather than editing history — so the ledger is append-only and auditable.",
         },
+        { type: "diagram", id: "stock-movement" },
         {
           type: "paragraph",
           text: "Movement types recorded in the ledger:",
@@ -140,6 +298,7 @@ export const caseStudy: CaseStudy = {
             "Inventory valuation and movement reports are available in the admin dashboard",
           ],
         },
+        { type: "diagram", id: "adjustment-flow" },
       ],
     },
     {
@@ -154,6 +313,7 @@ export const caseStudy: CaseStudy = {
           type: "paragraph",
           text: "Receiving handles goods-in, including items that were not in the catalogue — the system can create a product record on the fly for non-catalog purchases. Purchases support both registered suppliers and individual sellers, with supplier details optional.",
         },
+        { type: "diagram", id: "purchase-flow" },
       ],
     },
     {
@@ -164,6 +324,7 @@ export const caseStudy: CaseStudy = {
           type: "paragraph",
           text: "Repair jobs move through pending, in-progress, awaiting-parts, completed, and cancelled states. Jobs capture customer details (including walk-ins), device information, diagnosis, technician assignment, estimated and actual costs, and the parts consumed — which are tracked as `repair_parts` linked back to products so completing a repair decrements parts stock through the same ledger.",
         },
+        { type: "diagram", id: "repair-flow" },
       ],
     },
     {
@@ -188,6 +349,7 @@ export const caseStudy: CaseStudy = {
           type: "callout",
           text: "Critical mutations — checkout, purchase approval and receiving, stock adjustments, and POS sales — are wrapped in database transactions so an order, its payment record, and its stock movements commit or fail together.",
         },
+        { type: "diagram", id: "events-listeners" },
       ],
     },
     {

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import type { ContentBlock } from "@/lib/case-study";
+import type { ContentBlock, DiagramDef } from "@/lib/case-study";
+import { Diagram } from "@/components/case-study/diagrams";
 
 /** Renders `backtick` spans as inline code chips. */
 export function renderInline(text: string): ReactNode[] {
@@ -106,7 +107,13 @@ function Steps({ items }: { items: string[] }) {
   );
 }
 
-export function ContentBlockView({ block }: { block: ContentBlock }) {
+export function ContentBlockView({
+  block,
+  diagrams,
+}: {
+  block: ContentBlock;
+  diagrams?: Record<string, DiagramDef>;
+}) {
   switch (block.type) {
     case "paragraph":
       return <p className={proseClass}>{renderInline(block.text)}</p>;
@@ -114,6 +121,10 @@ export function ContentBlockView({ block }: { block: ContentBlock }) {
       return <Callout text={block.text} />;
     case "steps":
       return <Steps items={block.items} />;
+    case "diagram": {
+      const def = diagrams?.[block.id];
+      return def ? <Diagram def={def} /> : null;
+    }
     case "list":
       if (block.variant === "chips") return <Chips items={block.items} />;
       return block.items.length >= 5 ? (
