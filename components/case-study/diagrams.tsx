@@ -253,7 +253,7 @@ function EntryCardDiagram({
             {def.fields.map((field) => (
               <li key={field} className="flex gap-3 text-sm leading-6 text-foreground/80">
                 <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted" />
-                {renderInline(field)}
+                <span className="min-w-0">{renderInline(field)}</span>
               </li>
             ))}
           </ul>

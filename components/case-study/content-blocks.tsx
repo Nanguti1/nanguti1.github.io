@@ -30,7 +30,7 @@ function BulletList({ items }: { items: string[] }) {
             aria-hidden="true"
             className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-muted"
           />
-          {renderInline(item)}
+          <span className="min-w-0">{renderInline(item)}</span>
         </li>
       ))}
     </ul>
@@ -49,7 +49,7 @@ function ChecklistGrid({ items }: { items: string[] }) {
             aria-hidden="true"
             className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted"
           />
-          {renderInline(item)}
+          <span className="min-w-0">{renderInline(item)}</span>
         </li>
       ))}
     </ul>
