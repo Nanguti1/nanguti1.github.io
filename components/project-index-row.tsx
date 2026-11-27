@@ -19,6 +19,8 @@ export function ProjectIndexRow({ project, index }: ProjectIndexRowProps) {
       <div className="col-span-2 max-w-sm sm:col-span-1 sm:col-start-2 sm:max-w-none sm:row-start-1">
         <ProjectMockup
           title={project.title}
+          src={project.banner}
+          imageAlt={project.banner ? `${project.title} banner` : undefined}
           className="transition-transform duration-500 ease-out group-hover:scale-[1.02]"
         />
       </div>

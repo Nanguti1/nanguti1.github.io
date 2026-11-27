@@ -117,8 +117,6 @@ export default function Home() {
                   project={twoB}
                   index="01"
                   visualRight
-                  imageSrc="/images/projects/2b-gamers-store-banner.webp"
-                  imageAlt="2B Gamers Store storefront banner"
                 />
               </Reveal>
             ) : null}

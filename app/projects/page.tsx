@@ -72,6 +72,8 @@ export default function ProjectsPage() {
               </div>
               <ProjectMockup
                 title={project.title}
+                src={project.banner}
+                imageAlt={project.banner ? `${project.title} banner` : undefined}
                 className="w-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               />
             </Link>

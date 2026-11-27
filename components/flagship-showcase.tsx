@@ -7,16 +7,12 @@ interface FlagshipShowcaseProps {
   project: Project;
   index: string;
   visualRight?: boolean;
-  imageSrc?: string;
-  imageAlt?: string;
 }
 
 export function FlagshipShowcase({
   project,
   index,
   visualRight = false,
-  imageSrc,
-  imageAlt,
 }: FlagshipShowcaseProps) {
   return (
     <Link
@@ -26,8 +22,8 @@ export function FlagshipShowcase({
       <div className={visualRight ? "lg:order-2" : ""}>
         <ProjectMockup
           title={project.title}
-          src={imageSrc}
-          imageAlt={imageAlt}
+          src={project.banner}
+          imageAlt={project.banner ? `${project.title} banner` : undefined}
           className="transition-transform duration-500 ease-out group-hover:scale-[1.02]"
         />
       </div>

@@ -24,6 +24,8 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
           <ProjectMockup
             title={project.title}
             domain={`${project.slug}.app`}
+            src={project.banner}
+            imageAlt={project.banner ? `${project.title} banner` : undefined}
             className="w-full"
           />
           <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-background via-background/20 to-transparent" />

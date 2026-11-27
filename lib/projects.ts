@@ -20,11 +20,14 @@ export interface Project {
    * TODO: fill in verified values; leave null to hide.
    */
   statusLine?: string | null;
+  /** Optional banner image shown in place of the schematic mockup. */
+  banner?: string;
 }
 
 export const projects: Project[] = [
   {
     slug: "2b-gamers-store",
+    banner: "/images/projects/2b-gamers-store-banner.webp",
     title: "2B Gamers Store",
     summary:
       "Production Kenyan gaming retail and service platform covering storefront, customer accounts, M-PESA payments, inventory, procurement, repairs, and point of sale.",
@@ -38,6 +41,7 @@ export const projects: Project[] = [
   },
   {
     slug: "hamaline-insurance",
+    banner: "/images/projects/hamaline-insurance-agency-banner.png",
     title: "Hamaline Insurance Management System",
     summary:
       "End-to-end insurance management application covering clients, underwriting, policies, claims, payments, renewals, commissions, reporting, and role-based access control.",
@@ -51,6 +55,7 @@ export const projects: Project[] = [
   },
   {
     slug: "simplifi-networks",
+    banner: "/images/projects/simplifi-networks-banner.png",
     title: "Simplifi Networks",
     summary:
       "Networking and telecommunications distribution platform built from the ground up on a Laravel API with a Next.js storefront and Laravel Nova administration.",
@@ -64,6 +69,7 @@ export const projects: Project[] = [
   },
   {
     slug: "blvd-guide",
+    banner: "/images/projects/blvd-guide-banner.png",
     title: "BLVD GUIDE",
     summary:
       "Venue discovery and marketplace platform with listings, reviews, subscription plans, venue approval, media management, and a geographic location hierarchy.",
