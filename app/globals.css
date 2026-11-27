@@ -17,6 +17,8 @@
   --font-mono: var(--font-geist-mono);
   --text-body: 0.9375rem;
   --text-body--line-height: 1.6;
+  --text-prose: 1.0625rem;
+  --text-prose--line-height: 1.75;
 }
 
 body {

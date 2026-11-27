@@ -1,6 +1,8 @@
 export type ContentBlock =
   | { type: "paragraph"; text: string }
-  | { type: "list"; items: string[] };
+  | { type: "list"; items: string[]; variant?: "list" | "chips" }
+  | { type: "callout"; text: string }
+  | { type: "steps"; items: string[] };
 
 export interface CaseStudySection {
   id: string;

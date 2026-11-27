@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { CaseStudy } from "@/lib/case-study";
+import type { CaseStudy, CaseStudySection } from "@/lib/case-study";
 import type { Project } from "@/lib/projects";
 import { projects } from "@/lib/projects";
 import { Glance } from "@/components/case-study/glance";
@@ -8,6 +8,7 @@ import { PrevNext } from "@/components/case-study/prev-next";
 import { HeroGallery, type GalleryItem } from "@/components/case-study/hero-gallery";
 import { StatsStrip } from "@/components/case-study/stats-strip";
 import { TechTags } from "@/components/tech-tags";
+import { ContentBlockView, renderInline } from "@/components/case-study/content-blocks";
 
 interface CaseStudyLayoutProps {
   project: Project;
@@ -26,6 +27,43 @@ const buttonPrimary =
   "inline-flex h-11 items-center rounded-full bg-accent px-6 text-sm font-medium text-background transition-colors hover:bg-accent-bright";
 const buttonSecondary =
   "inline-flex h-11 items-center rounded-full border border-line-strong px-6 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent";
+
+function Section({
+  section,
+  index,
+}: {
+  section: CaseStudySection;
+  index: number;
+}) {
+  return (
+    <section
+      aria-labelledby={section.id}
+      className="border-t border-line pt-16 first:border-t-0 first:pt-0 sm:pt-24 sm:first:pt-0"
+    >
+      <p className="mb-4 font-mono text-xs uppercase tracking-[0.08em] text-muted">
+        {String(index + 1).padStart(2, "0")}
+      </p>
+      <h2
+        id={section.id}
+        className="group mb-8 scroll-mt-24 text-[clamp(1.5rem,2.5vw,2rem)] font-semibold tracking-[-0.02em] text-foreground"
+      >
+        {section.title}
+        <a
+          href={`#${section.id}`}
+          aria-label={`Copy link to ${section.title}`}
+          className="ml-2 inline-block align-middle text-subtle opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100 hover:text-accent"
+        >
+          #
+        </a>
+      </h2>
+      <div className="space-y-8">
+        {section.blocks.map((block, i) => (
+          <ContentBlockView key={i} block={block} />
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
   const index = String(
@@ -131,8 +169,8 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
       <div className="mb-16 max-w-[68ch] space-y-6">
         {caseStudy.intro.map((block, i) =>
           block.type === "paragraph" ? (
-            <p key={i} className="text-base leading-8 text-muted">
-              {block.text}
+            <p key={i} className="text-prose leading-[1.75] text-foreground/80">
+              {renderInline(block.text)}
             </p>
           ) : null,
         )}
@@ -146,48 +184,12 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
       {/* Sticky TOC + sections */}
       <div className="grid gap-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-16">
         <CaseStudyNav sections={caseStudy.sections} />
-        <div className="min-w-0 max-w-[68ch] space-y-16">
-          {caseStudy.sections.map((section) => (
-            <section key={section.id} aria-labelledby={section.id}>
-              <h2
-                id={section.id}
-                className="group mb-6 scroll-mt-24 text-2xl font-semibold tracking-tight text-foreground"
-              >
-                {section.title}
-                <a
-                  href={`#${section.id}`}
-                  aria-label={`Copy link to ${section.title}`}
-                  className="ml-2 inline-block align-middle text-subtle opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100 hover:text-accent"
-                >
-                  #
-                </a>
-              </h2>
-            <div className="space-y-6">
-              {section.blocks.map((block, i) =>
-                block.type === "paragraph" ? (
-                  <p key={i} className="text-base leading-8 text-muted">
-                    {block.text}
-                  </p>
-                ) : (
-                  <ul key={i} className="space-y-2">
-                    {block.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex gap-4 text-base leading-7 text-muted"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-subtle"
-                        />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                ),
-              )}
-            </div>
-          </section>
-          ))}
+        <div className="min-w-0 max-w-[68ch]">
+          <div className="flex flex-col">
+            {caseStudy.sections.map((section, i) => (
+              <Section key={section.id} section={section} index={i} />
+            ))}
+          </div>
         </div>
       </div>
 
