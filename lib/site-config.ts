@@ -15,6 +15,8 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/wanyonyi-kevin/",
     github: "https://github.com/Nanguti1",
     website: "https://www.wanyonyi.co.ke/",
+    /** TODO: add a WhatsApp number/link to show a WhatsApp row. Hidden while null. */
+    whatsapp: null as { display: string; href: string } | null,
     /** TODO: edit the month/year, e.g. "Open to new projects from March 2026" */
     availability: "Open to new projects",
   },

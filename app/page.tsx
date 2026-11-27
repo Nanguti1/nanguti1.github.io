@@ -7,7 +7,8 @@ import { ExperienceTimeline } from "@/components/experience-timeline";
 import { Approach } from "@/components/approach";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { ContactMethods } from "@/components/contact-methods";
+import { ContactLedger } from "@/components/contact-ledger";
+import { CopyButton } from "@/components/copy-button";
 import { getProject, projects, type Project } from "@/lib/projects";
 import { siteConfig } from "@/lib/site-config";
 
@@ -216,15 +217,62 @@ export default function Home() {
 
       {/* Contact */}
       <section className="border-t border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 py-16 sm:py-24 lg:grid-cols-[7fr_5fr] lg:gap-16">
           <Reveal>
-            <SectionHeading
-              title="Contact"
-              description="For project inquiries, collaboration, or questions about the work documented here."
-            />
+            <div>
+              <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em] text-foreground">
+                Contact
+              </h2>
+              <p className="mt-4 max-w-[50ch] text-lg leading-8 text-muted">
+                For project inquiries, collaboration, or questions about the
+                work documented here.
+              </p>
+              {siteConfig.contact.availability ? (
+                <p className="mt-6 inline-flex items-center gap-3 rounded-full border border-line bg-background px-4 py-2">
+                  <span
+                    className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-accent-2"
+                    aria-hidden="true"
+                  />
+                  <span className="text-sm font-medium text-foreground">
+                    {siteConfig.contact.availability}
+                  </span>
+                </p>
+              ) : null}
+              {siteConfig.contact.email ? (
+                <>
+                  <a
+                    href={`mailto:${siteConfig.contact.email}`}
+                    aria-label="Email Kevin Wanyonyi"
+                    className="group relative mt-8 inline-block text-[clamp(1.75rem,4vw,3.25rem)] font-semibold leading-tight tracking-[-0.02em] text-foreground [overflow-wrap:anywhere] after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:scale-x-100 focus-visible:after:scale-x-100"
+                  >
+                    {siteConfig.contact.email}
+                    <span
+                      aria-hidden="true"
+                      className="ml-3 inline-block transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </a>
+                  <div className="mt-8 flex flex-wrap items-center gap-6">
+                    <CopyButton
+                      value={siteConfig.contact.email}
+                      label="Copy email"
+                      copiedLabel="Copied"
+                      className="inline-flex h-10 items-center rounded-full border border-line-strong px-5 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+                    />
+                    <Link
+                      href="/contact"
+                      className="text-sm text-muted transition-colors hover:text-accent"
+                    >
+                      Or use the contact form
+                    </Link>
+                  </div>
+                </>
+              ) : null}
+            </div>
           </Reveal>
           <Reveal delay={100}>
-            <ContactMethods />
+            <ContactLedger />
           </Reveal>
         </div>
       </section>
