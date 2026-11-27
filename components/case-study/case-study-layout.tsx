@@ -199,3 +199,30 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
     </main>
   );
 }
+
+export function CaseStudyClosing() {
+  return (
+    <section className="border-t border-line bg-surface">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-6 px-6 py-16 sm:flex-row sm:items-center sm:justify-between sm:py-20">
+        <p className="max-w-xl text-prose leading-[1.75] text-foreground/80">
+          For project inquiries, collaboration, or questions about the work
+          documented here.
+        </p>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            href="/contact"
+            className="inline-flex h-12 items-center gap-4 rounded-full bg-accent px-8 text-sm font-medium text-background transition-all hover:bg-accent-bright"
+          >
+            Get in touch
+          </Link>
+          <Link
+            href="/projects"
+            className="inline-flex h-12 items-center rounded-full border border-line-strong px-8 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+          >
+            View all projects
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
