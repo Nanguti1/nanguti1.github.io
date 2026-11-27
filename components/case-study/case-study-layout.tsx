@@ -6,6 +6,7 @@ import { Glance } from "@/components/case-study/glance";
 import { TableOfContents } from "@/components/case-study/table-of-contents";
 import { PrevNext } from "@/components/case-study/prev-next";
 import { HeroGallery, type GalleryItem } from "@/components/case-study/hero-gallery";
+import { StatsStrip } from "@/components/case-study/stats-strip";
 import { TechTags } from "@/components/tech-tags";
 
 interface CaseStudyLayoutProps {
@@ -118,6 +119,13 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
           </div>
         </div>
       </header>
+
+      {/* Stats strip */}
+      {caseStudy.stats ? (
+        <div className="mb-16">
+          <StatsStrip stats={caseStudy.stats} />
+        </div>
+      ) : null}
 
       {/* Intro */}
       <div className="mb-16 max-w-3xl space-y-6">

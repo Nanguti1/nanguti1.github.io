@@ -11,11 +11,20 @@ export const caseStudy: CaseStudy = {
       text: "The platform unifies three sales channels in one system: the online storefront, an in-store point of sale, and a repair operation — backed by a single inventory ledger, procurement workflow, and admin dashboard.",
     },
   ],
+  stats: [
+    { value: "3", label: "sales channels — storefront, POS, repairs" },
+    { value: "1", label: "shared inventory ledger" },
+    { value: "2", label: "M-PESA flows — STK Push and C2B" },
+    { value: "36", label: "feature and unit test files" },
+  ],
   glance: [
     { label: "Product type", value: "Gaming retail and service platform" },
     { label: "Platform type", value: "Web application — storefront, admin, POS" },
-    { label: "Live site", value: "2bgamersstore.co.ke" },
-    { label: "Stack", value: "Laravel 13, PHP 8.3+, Inertia, React 19, TypeScript, Tailwind CSS 4, MySQL" },
+    { label: "Live site", value: "2bgamersstore.co.ke", href: "https://2bgamersstore.co.ke/" },
+    {
+      label: "Stack",
+      tags: ["Laravel 13", "PHP 8.3+", "Inertia", "React 19", "TypeScript", "Tailwind CSS 4", "MySQL"],
+    },
     { label: "Payments", value: "M-PESA STK Push + C2B via iankumu/mpesa" },
     { label: "Auth", value: "Laravel Fortify, Spatie permissions, 2FA" },
   ],
