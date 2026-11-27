@@ -3,7 +3,7 @@ import type { CaseStudy } from "@/lib/case-study";
 import type { Project } from "@/lib/projects";
 import { projects } from "@/lib/projects";
 import { Glance } from "@/components/case-study/glance";
-import { TableOfContents } from "@/components/case-study/table-of-contents";
+import { CaseStudyNav } from "@/components/case-study/case-study-nav";
 import { PrevNext } from "@/components/case-study/prev-next";
 import { HeroGallery, type GalleryItem } from "@/components/case-study/hero-gallery";
 import { StatsStrip } from "@/components/case-study/stats-strip";
@@ -128,7 +128,7 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
       ) : null}
 
       {/* Intro */}
-      <div className="mb-16 max-w-3xl space-y-6">
+      <div className="mb-16 max-w-[68ch] space-y-6">
         {caseStudy.intro.map((block, i) =>
           block.type === "paragraph" ? (
             <p key={i} className="text-base leading-8 text-muted">
@@ -143,18 +143,25 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
         <Glance items={caseStudy.glance} />
       </div>
 
-      {/* TOC + sections */}
-      <TableOfContents sections={caseStudy.sections} />
-
-      <div className="max-w-3xl space-y-16">
-        {caseStudy.sections.map((section) => (
-          <section key={section.id} aria-labelledby={section.id}>
-            <h2
-              id={section.id}
-              className="mb-6 scroll-mt-24 text-2xl font-semibold tracking-tight text-foreground"
-            >
-              {section.title}
-            </h2>
+      {/* Sticky TOC + sections */}
+      <div className="grid gap-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-16">
+        <CaseStudyNav sections={caseStudy.sections} />
+        <div className="min-w-0 max-w-[68ch] space-y-16">
+          {caseStudy.sections.map((section) => (
+            <section key={section.id} aria-labelledby={section.id}>
+              <h2
+                id={section.id}
+                className="group mb-6 scroll-mt-24 text-2xl font-semibold tracking-tight text-foreground"
+              >
+                {section.title}
+                <a
+                  href={`#${section.id}`}
+                  aria-label={`Copy link to ${section.title}`}
+                  className="ml-2 inline-block align-middle text-subtle opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100 hover:text-accent"
+                >
+                  #
+                </a>
+              </h2>
             <div className="space-y-6">
               {section.blocks.map((block, i) =>
                 block.type === "paragraph" ? (
@@ -180,7 +187,8 @@ export function CaseStudyLayout({ project, caseStudy }: CaseStudyLayoutProps) {
               )}
             </div>
           </section>
-        ))}
+          ))}
+        </div>
       </div>
 
       <PrevNext slug={project.slug} />
